@@ -243,7 +243,7 @@ export const PROPERTY_GALLERY = [
     title: 'Suíte / Quarto Elegante',
     category: 'Suites',
     url: 'https://besmart.pt/wp-content/uploads/2026/02/besmart_quarto_10_b-1280x853.webp',
-    description: 'Design contemporâneo com zona de trabalho e climatização individualizada A+.',
+    description: 'Design contemporâneo com zona de trabalho.',
   },
   {
     id: 'kitchen-1',
