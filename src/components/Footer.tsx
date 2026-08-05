@@ -1,14 +1,6 @@
 import React from 'react';
-import { Currency, Language } from '../types';
 
-interface FooterProps {
-  currency: Currency;
-  language: Language;
-  onOpenNda: () => void;
-  onOpenAi?: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0C2340] text-slate-300 py-16 border-t border-slate-800 text-xs font-normal">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">

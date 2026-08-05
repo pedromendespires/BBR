@@ -50,11 +50,7 @@ export default function App() {
       <SwotAndRisk />
 
       {/* Footer */}
-      <Footer
-        currency={currency}
-        language={language}
-        onOpenNda={() => setIsNdaOpen(true)}
-      />
+      <Footer />
 
       {/* Modals */}
       <NdaModal isOpen={isNdaOpen} onClose={() => setIsNdaOpen(false)} />

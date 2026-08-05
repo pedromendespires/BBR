@@ -9,7 +9,6 @@ interface HeaderProps {
   language: Language;
   setLanguage: (l: Language) => void;
   onOpenNda: () => void;
-  onOpenAi?: () => void;
   onScrollToSimulator: () => void;
 }
 
@@ -19,7 +18,6 @@ export const Header: React.FC<HeaderProps> = ({
   language,
   setLanguage,
   onOpenNda,
-  onOpenAi,
   onScrollToSimulator,
 }) => {
   const t = TRANSLATIONS[language];

@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { Currency } from '../types';
-import { ROOM_ASSETS, PROPERTY_GALLERY } from '../data/dossierData';
-import { formatCurrency } from '../utils/formatters';
-import { CheckCircle2, Bath, Sun, MapPin, X, Camera, Eye } from 'lucide-react';
+import { PROPERTY_GALLERY } from '../data/dossierData';
+import { CheckCircle2, MapPin, X, Camera, Eye } from 'lucide-react';
 
 interface AssetOverviewProps {
   currency: Currency;
   onOpenNda: () => void;
 }
 
-export const AssetOverview: React.FC<AssetOverviewProps> = ({ currency, onOpenNda }) => {
+export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
   const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState<typeof PROPERTY_GALLERY[0] | null>(null);
 
-  const filteredRooms = ROOM_ASSETS;
   const filteredGallery = PROPERTY_GALLERY;
 
   return (
@@ -116,41 +114,6 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ currency, onOpenNd
         </div>
       </div>
 
-      {/* Room Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredRooms.map((room) => (
-          <div
-            key={room.id}
-            className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all flex flex-col justify-between group overflow-hidden"
-          >
-            <div className="p-6">
-              {/* Pricing Cards */}
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 mb-4">
-                <div>
-                  <p className="text-[9px] uppercase tracking-wider font-bold text-slate-400">Época Académica</p>
-                  <p className="text-sm font-black text-[#0C2340]">
-                    {formatCurrency(room.monthlyRentAcademic, currency)}/mês
-                  </p>
-                </div>
-              </div>
-
-              {/* Key Amenities */}
-              <div className="space-y-1.5 text-xs text-slate-600 mb-0 font-normal">
-                <div className="flex items-center gap-2">
-                  <Bath className="w-3.5 h-3.5 text-[#00A8B5]" />
-                  <span>Casa de Banho Privativa En-Suite</span>
-                </div>
-                {room.hasBalcony && (
-                  <div className="flex items-center gap-2 text-slate-800">
-                    <Sun className="w-3.5 h-3.5 text-[#FF8C42]" />
-                    <span>Varanda / Vista Exterior</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
 
       {/* Location Highlights Interactive Section */}
       <div className="mt-16 bg-[#0C2340] text-white p-8 lg:p-12 rounded-3xl shadow-2xl">
