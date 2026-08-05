@@ -8,14 +8,12 @@ import { FinancialPerformance } from './components/FinancialPerformance';
 import { AssetOverview } from './components/AssetOverview';
 import { SwotAndRisk } from './components/SwotAndRisk';
 import { Footer } from './components/Footer';
-import { AiAssistantModal } from './components/AiAssistantModal';
 import { NdaModal } from './components/NdaModal';
 
 export default function App() {
   const [currency, setCurrency] = useState<Currency>('EUR');
   const [language, setLanguage] = useState<Language>('PT');
   const [isNdaOpen, setIsNdaOpen] = useState<boolean>(false);
-  const [isAiOpen, setIsAiOpen] = useState<boolean>(false);
 
   const scrollToSimulator = () => {
     document.getElementById('simulator-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -30,7 +28,6 @@ export default function App() {
         language={language}
         setLanguage={setLanguage}
         onOpenNda={() => setIsNdaOpen(true)}
-        onOpenAi={() => setIsAiOpen(true)}
         onScrollToSimulator={scrollToSimulator}
       />
 
@@ -57,19 +54,9 @@ export default function App() {
         currency={currency}
         language={language}
         onOpenNda={() => setIsNdaOpen(true)}
-        onOpenAi={() => setIsAiOpen(true)}
       />
 
       {/* Modals */}
-      <AiAssistantModal
-        isOpen={isAiOpen}
-        onClose={() => setIsAiOpen(false)}
-        onOpenNda={() => {
-          setIsAiOpen(false);
-          setIsNdaOpen(true);
-        }}
-      />
-
       <NdaModal isOpen={isNdaOpen} onClose={() => setIsNdaOpen(false)} />
     </div>
   );

@@ -285,7 +285,7 @@ export const PROPERTY_GALLERY = [
     title: 'Suíte com Luz Natural',
     category: 'Suítes & Estúdios',
     url: 'https://besmart.pt/wp-content/uploads/2026/02/besmart_quarto_3_a-1280x853.webp',
-    description: 'Mobiliário ergonómico de elevada durabilidade e insonorização superior.',
+    description: 'Mobiliário ergonómico de elevada durabilidade.',
   },
 ];
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Currency, Language } from '../types';
 import { formatCurrency, TRANSLATIONS } from '../utils/formatters';
-import { Sparkles, Calculator, ArrowRight } from 'lucide-react';
+import { Calculator, ArrowRight } from 'lucide-react';
 
 interface HeaderProps {
   currency: Currency;
@@ -9,7 +9,7 @@ interface HeaderProps {
   language: Language;
   setLanguage: (l: Language) => void;
   onOpenNda: () => void;
-  onOpenAi: () => void;
+  onOpenAi?: () => void;
   onScrollToSimulator: () => void;
 }
 
@@ -68,14 +68,6 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
             ))}
           </div>
-
-          <button
-            onClick={onOpenAi}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#00A8B5] hover:bg-[#008893] text-white font-bold text-[10px] tracking-wider transition-all cursor-pointer shadow-sm"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-white" />
-            <span className="hidden sm:inline">Assistente IA</span>
-          </button>
         </div>
       </nav>
 
@@ -88,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E6F7F8] text-[#008893] text-[11px] uppercase tracking-wider font-extrabold border border-[#00A8B5]/20">
                 <span className="w-2 h-2 rounded-full bg-[#00A8B5] animate-pulse" />
-                <span>Oportunidade M&A • Aveiro, Portugal</span>
+                <span>Oportunidade de investimento ou M&A • Aveiro, Portugal</span>
               </div>
             </div>
 
@@ -100,6 +92,35 @@ export const Header: React.FC<HeaderProps> = ({
             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mt-6 max-w-2xl">
               {t.subtitle}
             </p>
+
+            {/* Image of Aveiro */}
+            <div className="mt-5 max-w-2xl overflow-hidden rounded-2xl border border-slate-200 shadow-md bg-slate-900 group relative">
+              <div className="relative h-48 sm:h-56 w-full overflow-hidden">
+                <img
+                  src="https://besmart.pt/wp-content/uploads/2026/03/passeio-de-moliceiro.webp"
+                  alt="Canais de Aveiro - Passeio de Moliceiro"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C2340]/85 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#00A8B5] px-2.5 py-1 bg-[#0C2340]/90 rounded-md border border-[#00A8B5]/30">
+                      Viver Aveiro
+                    </span>
+                    <span className="text-xs font-semibold text-slate-100">Canais & Centro Histórico</span>
+                  </div>
+                  <a
+                    href="https://besmart.pt/viver-aveiro/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-medium text-slate-200 hover:text-white underline underline-offset-2"
+                  >
+                    besmart.pt/viver-aveiro
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Action CTAs */}

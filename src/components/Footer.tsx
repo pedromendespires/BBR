@@ -1,19 +1,14 @@
 import React from 'react';
 import { Currency, Language } from '../types';
-import { Building2, FileText, Printer, Sparkles } from 'lucide-react';
 
 interface FooterProps {
   currency: Currency;
   language: Language;
   onOpenNda: () => void;
-  onOpenAi: () => void;
+  onOpenAi?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ currency, language, onOpenNda, onOpenAi }) => {
-  const handlePrint = () => {
-    window.print();
-  };
-
+export const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className="bg-[#0C2340] text-slate-300 py-16 border-t border-slate-800 text-xs font-normal">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
@@ -26,24 +21,6 @@ export const Footer: React.FC<FooterProps> = ({ currency, language, onOpenNda, o
                 Vetores & Hipotenusas, Lda. • Centro Histórico de Aveiro, Portugal
               </p>
             </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              onClick={handlePrint}
-              className="flex items-center gap-1.5 px-4 py-2.5 bg-[#071629] hover:bg-slate-800 text-slate-200 font-bold uppercase tracking-wider text-[10px] cursor-pointer transition-all border border-slate-700/60 rounded-xl"
-            >
-              <Printer className="w-3.5 h-3.5 text-[#00A8B5]" />
-              <span>Exportar PDF</span>
-            </button>
-
-            <button
-              onClick={onOpenAi}
-              className="flex items-center gap-1.5 px-4 py-2.5 bg-[#00A8B5] hover:bg-[#008893] text-white font-bold uppercase tracking-wider text-[10px] cursor-pointer transition-all rounded-xl shadow-md"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Assistente IA</span>
-            </button>
           </div>
         </div>
 
