@@ -4,12 +4,12 @@ import { ShieldAlert, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 export const SwotAndRisk: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-slate-200">
+    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
       {/* Part 1: SWOT Analysis */}
       <div>
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8 sm:mb-12">
           <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">05. Matriz Estratégica</div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
             Análise SWOT <span className="font-normal text-[#00A8B5]">& Posicionamento</span>
           </h2>
           <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
@@ -17,11 +17,11 @@ export const SwotAndRisk: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {/* Strengths */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#00A8B5]" />
                 <h3 className="text-[#0C2340] font-bold text-xs uppercase tracking-wider">
                   FORÇAS (Strengths)
@@ -39,9 +39,9 @@ export const SwotAndRisk: React.FC = () => {
           </div>
 
           {/* Opportunities */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#0C2340]" />
                 <h3 className="text-[#0C2340] font-bold text-xs uppercase tracking-wider">
                   OPORTUNIDADES (Opps)
@@ -59,9 +59,9 @@ export const SwotAndRisk: React.FC = () => {
           </div>
 
           {/* Weaknesses */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#FF8C42]" />
                 <h3 className="text-[#0C2340] font-bold text-xs uppercase tracking-wider">
                   FRAQUEZAS (Weaknesses)
@@ -79,9 +79,9 @@ export const SwotAndRisk: React.FC = () => {
           </div>
 
           {/* Threats */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-600" />
                 <h3 className="text-[#0C2340] font-bold text-xs uppercase tracking-wider">
                   AMEAÇAS (Threats)

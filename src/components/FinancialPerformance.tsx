@@ -41,12 +41,12 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
   ];
 
   return (
-    <section className="py-16 px-6 lg:px-12 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 2xl:px-16 border-t border-slate-200 max-w-7xl 2xl:max-w-[1536px] mx-auto">
+      <div className="space-y-12 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl">
           <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">03. Histórico e Projeções</div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
             Desempenho Financeiro Histórico <span className="font-normal text-[#00A8B5]">& Modelo Híbrido</span>
           </h2>
           <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
@@ -57,14 +57,14 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
         {/* Grid 1: EBITDA Evolution & Risk vs Return */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Card 1: EBITDA Evolution Bar Chart */}
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-[#0C2340] flex items-center gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <h3 className="text-base sm:text-lg font-bold text-[#0C2340] flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#00A8B5]" />
                   Evolução do EBITDA (2023-2025)
                 </h3>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 bg-[#0C2340] text-white rounded-lg">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 bg-[#0C2340] text-white rounded-lg">
                   Média: {formatCurrency(36668, currency)}/ano
                 </span>
               </div>
@@ -72,7 +72,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                 Dados auditados comprovando custos fixos reduzidos e operação autónoma sem encargos com pessoal.
               </p>
 
-              <div className="h-64 w-full">
+              <div className="h-56 sm:h-64 lg:h-72 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={ebitdaChartData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
                     <XAxis dataKey="year" stroke="#64748b" fontSize={11} />
@@ -107,14 +107,14 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
           </div>
 
           {/* Card 2: Risk vs Return positioning */}
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-[#0C2340] flex items-center gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <h3 className="text-base sm:text-lg font-bold text-[#0C2340] flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF8C42]" />
                   Perfil Risco vs. Retorno
                 </h3>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 bg-[#FF8C42] text-white rounded-lg">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 bg-[#FF8C42] text-white rounded-lg">
                   Yield ~9,1%
                 </span>
               </div>
@@ -122,9 +122,9 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                 Comparativo de rendimento líquido em relação a outras classes de ativos imobiliários na Europa.
               </p>
 
-              <div className="h-64 w-full">
+              <div className="h-56 sm:h-64 lg:h-72 w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
+                  <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: -10 }}>
                     <XAxis
                       type="number"
                       dataKey="risk"
@@ -175,9 +175,9 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
         </div>
 
         {/* Grid 2: Hybrid Business Model (Academic vs Summer) */}
-        <div className="bg-white p-8 lg:p-12 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="bg-white p-5 sm:p-8 lg:p-12 rounded-2xl border border-slate-200 shadow-sm">
           <div className="max-w-2xl mb-8">
-            <h3 className="text-2xl font-extrabold text-[#0C2340]">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0C2340]">
               Modelo de Negócio Híbrido: <span className="font-normal text-[#00A8B5]">Estabilidade + Picos de Lucro</span>
             </h3>
             <p className="text-xs text-slate-500 mt-1 font-normal">
@@ -187,11 +187,11 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Chart Column (7 cols) */}
-            <div className="lg:col-span-7 h-72">
+            <div className="lg:col-span-7 h-64 sm:h-72">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={revenueSeasonData} layout="vertical" margin={{ left: 20, right: 20 }}>
+                <BarChart data={revenueSeasonData} layout="vertical" margin={{ left: 0, right: 10 }}>
                   <XAxis type="number" stroke="#64748b" fontSize={11} tickFormatter={(v) => `${v / 1000}k€`} />
-                  <YAxis dataKey="label" type="category" stroke="#475569" fontSize={11} width={170} />
+                  <YAxis dataKey="label" type="category" stroke="#475569" fontSize={10} width={150} />
                   <Tooltip
                     formatter={(val: any) => [formatCurrency(Number(val), currency), 'Faturação Total']}
                     contentStyle={{ backgroundColor: '#0C2340', color: '#fff', fontSize: '11px', borderRadius: '8px' }}
@@ -207,7 +207,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
 
             {/* Explanation Column (5 cols) */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="p-5 bg-slate-50 rounded-xl border border-slate-200">
+              <div className="p-4 sm:p-5 bg-slate-50 rounded-xl border border-slate-200">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2.5 bg-[#E6F7F8] text-[#00A8B5] rounded-xl shrink-0">
                     <GraduationCap className="w-5 h-5" />
@@ -222,7 +222,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                 </p>
               </div>
 
-              <div className="p-5 bg-slate-50 rounded-xl border border-slate-200">
+              <div className="p-4 sm:p-5 bg-slate-50 rounded-xl border border-slate-200">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2.5 bg-[#FFF4EC] text-[#FF8C42] rounded-xl shrink-0">
                     <Sun className="w-5 h-5" />

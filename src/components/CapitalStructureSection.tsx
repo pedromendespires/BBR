@@ -16,10 +16,10 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-slate-200">
-      <div className="max-w-3xl mb-12">
+    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
+      <div className="max-w-3xl mb-8 sm:mb-12">
         <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">01. Análise da Estrutura</div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
           Estrutura de Capital <span className="font-normal text-[#00A8B5]">& Vantagens Transacionais</span>
         </h2>
         <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
@@ -29,7 +29,7 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
         {/* Left Card: Recharts Donut Chart */}
-        <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div className="bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#0C2340] mb-2 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#00A8B5]" />
@@ -39,15 +39,15 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
               Enterprise Value de {formatCurrency(1200000, currency)} com otimização do Return on Equity (ROE).
             </p>
 
-            <div className="relative h-64 w-full">
+            <div className="relative h-64 sm:h-72 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={capitalData}
                     cx="50%"
                     cy="45%"
-                    innerRadius={62}
-                    outerRadius={92}
+                    innerRadius={58}
+                    outerRadius={88}
                     paddingAngle={4}
                     dataKey="value"
                     stroke="#ffffff"
@@ -77,7 +77,7 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
                       const item = entry?.payload;
                       const valStr = item ? formatCurrency(item.value, currency) : '';
                       return (
-                        <span className="text-xs font-bold text-[#0C2340] inline-flex items-center gap-1.5 ml-1 mr-3">
+                        <span className="text-[11px] sm:text-xs font-bold text-[#0C2340] inline-flex items-center gap-1.5 ml-1 mr-3">
                           <span>{value}:</span>
                           <span className="text-[#00A8B5] font-black">{valStr}</span>
                         </span>
@@ -90,7 +90,7 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
               {/* Centered Donut Badge */}
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pb-9">
                 <span className="text-[9px] uppercase tracking-widest font-bold text-slate-400">Total (EV)</span>
-                <span className="text-lg font-black text-[#0C2340] leading-none my-0.5">
+                <span className="text-base sm:text-lg font-black text-[#0C2340] leading-none my-0.5">
                   {formatCurrency(1200000, currency)}
                 </span>
                 <span className="text-[10px] font-extrabold text-[#00A8B5] bg-[#E6F7F8] px-2 py-0.5 rounded-full border border-[#00A8B5]/20">
@@ -100,13 +100,13 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
             </div>
 
             {/* Explicit Value Breakdown Grid */}
-            <div className="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-100">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-100">
               <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#0C2340]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Capital Próprio (Equity)</span>
                 </div>
-                <p className="text-base font-black text-[#0C2340]">
+                <p className="text-sm sm:text-base font-black text-[#0C2340]">
                   {formatCurrency(886000, currency)} <span className="text-xs font-semibold text-slate-400">(73,8%)</span>
                 </p>
               </div>
@@ -116,7 +116,7 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
                   <span className="w-2.5 h-2.5 rounded-full bg-[#00A8B5]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Dívida Bancária</span>
                 </div>
-                <p className="text-base font-black text-[#00A8B5]">
+                <p className="text-sm sm:text-base font-black text-[#00A8B5]">
                   {formatCurrency(314000, currency)} <span className="text-xs font-semibold text-slate-400">(26,2%)</span>
                 </p>
               </div>
@@ -129,15 +129,15 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
         </div>
 
         {/* Right Column: 3 Strategic Advantage Cards */}
-        <div className="space-y-6 flex flex-col justify-between">
+        <div className="space-y-4 sm:space-y-6 flex flex-col justify-between">
           {/* Card 1: Margem de Segurança Imobiliária */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#E6F7F8] text-[#00A8B5] rounded-xl shrink-0">
-                <ShieldCheck className="w-6 h-6" />
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="p-2.5 sm:p-3 bg-[#E6F7F8] text-[#00A8B5] rounded-xl shrink-0">
+                <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h4 className="text-base text-[#0C2340] mb-1 font-bold">
+                <h4 className="text-sm sm:text-base text-[#0C2340] mb-1 font-bold">
                   Margem de Segurança Imobiliária
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
@@ -148,13 +148,13 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
           </div>
 
           {/* Card 2: Eficiência Transacional (Share Deal) */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#FFF4EC] text-[#FF8C42] rounded-xl shrink-0">
-                <PiggyBank className="w-6 h-6" />
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="p-2.5 sm:p-3 bg-[#FFF4EC] text-[#FF8C42] rounded-xl shrink-0">
+                <PiggyBank className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h4 className="text-base text-[#0C2340] mb-1 font-bold">
+                <h4 className="text-sm sm:text-base text-[#0C2340] mb-1 font-bold">
                   Eficiência Transacional (Share Deal)
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
@@ -165,13 +165,13 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
           </div>
 
           {/* Card 3: Amortização Acelerada */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#E6F7F8] text-[#00A8B5] rounded-xl shrink-0">
-                <Landmark className="w-6 h-6" />
+          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] transition-all">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="p-2.5 sm:p-3 bg-[#E6F7F8] text-[#00A8B5] rounded-xl shrink-0">
+                <Landmark className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h4 className="text-base text-[#0C2340] mb-1 font-bold">
+                <h4 className="text-sm sm:text-base text-[#0C2340] mb-1 font-bold">
                   Amortização Acelerada de Dívida
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">

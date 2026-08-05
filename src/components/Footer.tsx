@@ -2,10 +2,10 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0C2340] text-slate-300 py-16 border-t border-slate-800 text-xs font-normal">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+    <footer className="bg-[#0C2340] text-slate-300 py-12 sm:py-16 border-t border-slate-800 text-xs font-normal">
+      <div className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 space-y-8 sm:space-y-12">
         {/* Top Footer Callout */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-12 border-b border-white/10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 sm:pb-12 border-b border-white/10 text-center md:text-left">
           <div className="flex items-center gap-4">
             <div>
               <h3 className="text-lg font-bold text-white">Besmart Boutique Residence</h3>
@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Disclaimer & Legal Text */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 leading-relaxed text-slate-300">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 leading-relaxed text-slate-300">
           <div>
             <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-2">Aviso de Confidencialidade</h4>
             <p>
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-slate-800 text-center text-slate-400 text-xs">
+        <div className="pt-6 sm:pt-8 border-t border-slate-800 text-center text-slate-400 text-xs">
           Dossiê de Investimento Besmart Boutique Residence © 2026 Vetores & Hipotenusas, Lda. Todos os direitos reservados.
         </div>
       </div>

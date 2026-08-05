@@ -14,11 +14,11 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
   const filteredGallery = PROPERTY_GALLERY;
 
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-slate-200">
+    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
       {/* Section Header */}
-      <div className="max-w-3xl mb-12">
+      <div className="max-w-3xl mb-8 sm:mb-12">
         <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">04. Portfólio de Unidades</div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
           Fotografias do Ativo <span className="font-normal text-[#00A8B5]">& Portfólio de Unidades</span>
         </h2>
         <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
@@ -27,19 +27,19 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
       </div>
 
       {/* Building Architecture & Floor Distribution Specs (PDF Section 2) */}
-      <div className="mb-12 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+      <div className="mb-8 sm:mb-12 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
             <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5]">Estrutura do Edifício</span>
-            <h3 className="text-xl font-extrabold text-[#0C2340]">420,91 m² Área Bruta Total • 3 Pisos • 10 Suites (21 Camas)</h3>
+            <h3 className="text-lg sm:text-xl font-extrabold text-[#0C2340]">420,91 m² Área Bruta Total • 3 Pisos • 10 Suites (21 Camas)</h3>
           </div>
-          <div className="flex items-center gap-2 text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl w-max">
             <span>Ano Construção: 1992 (Remodelado 2020)</span>
             <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-black border border-amber-200">Classe D</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-xs text-slate-600">
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
             <h4 className="font-extrabold text-[#0C2340] text-sm flex items-center justify-between">
               <span>Rés do Chão</span>
@@ -73,7 +73,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
       </div>
 
       {/* Official Asset Photo Gallery */}
-      <div className="mb-16 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl">
+      <div className="mb-12 sm:mb-16 bg-slate-900 text-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 shadow-xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00A8B5]">
@@ -90,7 +90,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
             <div
               key={photo.id}
               onClick={() => setSelectedGalleryPhoto(photo)}
-              className="group relative h-56 rounded-2xl overflow-hidden cursor-pointer border border-slate-800 hover:border-[#00A8B5] transition-all bg-slate-950"
+              className="group relative h-48 sm:h-56 rounded-2xl overflow-hidden cursor-pointer border border-slate-800 hover:border-[#00A8B5] transition-all bg-slate-950"
             >
               <img
                 src={photo.url}
@@ -106,7 +106,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
                   {photo.title}
                 </h4>
               </div>
-              <div className="absolute top-3 right-3 p-2 bg-slate-950/80 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-3 right-3 p-2 bg-slate-950/80 text-white rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                 <Eye className="w-3.5 h-3.5" />
               </div>
             </div>
@@ -114,9 +114,8 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
         </div>
       </div>
 
-
       {/* Location Highlights Interactive Section */}
-      <div className="mt-16 bg-[#0C2340] text-white p-8 lg:p-12 rounded-3xl shadow-2xl">
+      <div className="mt-12 sm:mt-16 bg-[#0C2340] text-white p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
             <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] flex items-center gap-2">
@@ -150,7 +149,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-[#071629] p-6 rounded-2xl border border-slate-700/60 space-y-4 text-xs">
+          <div className="lg:col-span-5 bg-[#071629] p-5 sm:p-6 rounded-2xl border border-slate-700/60 space-y-4 text-xs">
             <h4 className="font-extrabold text-base text-white">Razões de Atratividade:</h4>
             <ul className="space-y-3 text-slate-300 font-normal">
               <li className="flex items-start gap-2">
@@ -169,7 +168,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
 
             <button
               onClick={onOpenNda}
-              className="w-full mt-4 py-3.5 bg-[#00A8B5] hover:bg-[#008893] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md"
+              className="w-full mt-4 py-3.5 bg-[#00A8B5] hover:bg-[#008893] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md min-h-[44px]"
             >
               Agendar Visita ao Imóvel
             </button>
@@ -180,15 +179,15 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
       {/* Gallery Photo Lightbox Modal */}
       {selectedGalleryPhoto && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#0C2340] max-w-3xl w-full rounded-3xl relative border border-slate-700 overflow-hidden shadow-2xl">
+          <div className="bg-[#0C2340] max-w-3xl w-full rounded-2xl sm:rounded-3xl relative border border-slate-700 overflow-hidden shadow-2xl">
             <button
               onClick={() => setSelectedGalleryPhoto(null)}
-              className="absolute top-4 right-4 z-10 p-2.5 bg-slate-900/80 text-white hover:bg-slate-800 rounded-full transition-all cursor-pointer border border-slate-700"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2.5 bg-slate-900/80 text-white hover:bg-slate-800 rounded-full transition-all cursor-pointer border border-slate-700 min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="h-96 sm:h-[450px] w-full bg-slate-950 relative">
+            <div className="h-72 sm:h-96 lg:h-[450px] w-full bg-slate-950 relative">
               <img
                 src={selectedGalleryPhoto.url}
                 alt={selectedGalleryPhoto.title}
@@ -197,14 +196,14 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
               />
             </div>
 
-            <div className="p-6 text-white space-y-2 bg-[#0C2340] border-t border-slate-800">
+            <div className="p-4 sm:p-6 text-white space-y-2 bg-[#0C2340] border-t border-slate-800">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5] px-3 py-1 bg-[#071629] rounded-lg border border-[#00A8B5]/30">
                   {selectedGalleryPhoto.category}
                 </span>
                 <span className="text-xs text-slate-400">Fotografia Oficial Besmart</span>
               </div>
-              <h3 className="text-xl font-bold text-white">{selectedGalleryPhoto.title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-white">{selectedGalleryPhoto.title}</h3>
               <p className="text-xs text-slate-300 font-normal">{selectedGalleryPhoto.description}</p>
             </div>
           </div>

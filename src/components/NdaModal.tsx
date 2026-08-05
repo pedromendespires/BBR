@@ -59,11 +59,11 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-[#F5F2ED] max-w-lg w-full p-8 relative border border-black/20 space-y-6 text-[#0F172A] shadow-2xl">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-[#F5F2ED] max-w-lg w-full p-5 sm:p-8 relative border border-black/20 space-y-6 text-[#0F172A] shadow-2xl rounded-2xl my-auto">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 bg-[#0F172A] text-white hover:bg-black transition-all cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 bg-[#0F172A] text-white hover:bg-black transition-all cursor-pointer rounded-lg min-h-[40px] min-w-[40px] flex items-center justify-center"
         >
           <X className="w-4 h-4" />
         </button>
@@ -71,13 +71,13 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
         {!submitted ? (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-2">
                 <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5] flex items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-[#00A8B5]" />
                   <span>Acordo de Confidencialidade (NDA)</span>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-[#0C2340] tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#0C2340] tracking-tight">
                 Solicitar Acesso ao Dossiê Completo
               </h3>
               <p className="text-xs text-slate-600 mt-1 font-normal leading-relaxed">
@@ -98,7 +98,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Ex: Dra. Sofia Monteiro"
-                  className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#B59410] font-light"
+                  className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                 />
               </div>
             </div>
@@ -117,7 +117,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="sofia@investimentos.pt"
-                    className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#B59410] font-light"
+                    className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                   />
                 </div>
               </div>
@@ -133,7 +133,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+351 910 000 000"
-                    className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#B59410] font-light"
+                    className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                   />
                 </div>
               </div>
@@ -152,7 +152,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Ex: Capital Asset Mgt"
-                    className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#B59410] font-light"
+                    className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                   />
                 </div>
               </div>
@@ -164,7 +164,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                 <select
                   value={formData.investorType}
                   onChange={(e) => setFormData({ ...formData, investorType: e.target.value })}
-                  className="w-full bg-white border border-black/10 px-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#B59410] font-light"
+                  className="w-full bg-white border border-black/10 px-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                 >
                   <option value="Fundo ou Family Office">Fundo / Family Office</option>
                   <option value="Investidor Individual">Investidor Individual / Privado</option>
@@ -181,9 +181,9 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                 id="terms"
                 checked={formData.agreedToTerms}
                 onChange={(e) => setFormData({ ...formData, agreedToTerms: e.target.checked })}
-                className="mt-0.5 accent-[#B59410]"
+                className="mt-0.5 accent-[#00A8B5] w-4 h-4"
               />
-              <label htmlFor="terms" className="text-[10px] text-slate-600 leading-tight font-light">
+              <label htmlFor="terms" className="text-[10px] text-slate-600 leading-tight font-light cursor-pointer">
                 Confirmo que as informações prestadas são verdadeiras e aceito manter sob estrita confidencialidade todos os dados financeiros recebidos relativos à Vetores & Hipotenusas, Lda.
               </label>
             </div>
@@ -191,7 +191,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-3.5 bg-[#0F172A] hover:bg-[#B59410] text-white font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#0F172A] hover:bg-[#00A8B5] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 min-h-[44px]"
             >
               <Send className="w-3.5 h-3.5" />
               <span>{submitting ? 'A Processar Pedido...' : 'Enviar Pedido de NDA & VDR'}</span>
@@ -199,18 +199,18 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
           </form>
         ) : (
           <div className="text-center py-6 space-y-4">
-            <div className="w-14 h-14 bg-[#0F172A] text-[#B59410] flex items-center justify-center mx-auto">
+            <div className="w-14 h-14 bg-[#0F172A] text-[#00A8B5] flex items-center justify-center mx-auto rounded-full">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
-            <h3 className="text-2xl font-serif font-bold text-[#0F172A]">Pedido Submetido com Sucesso!</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A]">Pedido Submetido com Sucesso!</h3>
             <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto font-light">
               Obrigado pelo interesse na Besmart Boutique Residence. O seu código de referência do pedido é{' '}
-              <strong className="text-[#B59410] font-bold">{receiptData?.id || 'NDA-982134'}</strong>. O responsável do dossiê entrará em contacto dentro de 24 horas.
+              <strong className="text-[#00A8B5] font-bold">{receiptData?.id || 'NDA-982134'}</strong>. O responsável do dossiê entrará em contacto dentro de 24 horas.
             </p>
 
-            <div className="bg-white p-4 border border-black/10 text-left text-xs space-y-1 font-light">
-              <p className="font-serif font-bold text-[#0F172A]">Resumo da Solicitação:</p>
+            <div className="bg-white p-4 border border-black/10 text-left text-xs space-y-1 font-light rounded-xl">
+              <p className="font-bold text-[#0F172A]">Resumo da Solicitação:</p>
               <p className="text-slate-600">Investidor: {receiptData?.name}</p>
               <p className="text-slate-600">Email: {receiptData?.email}</p>
               <p className="text-slate-600">Perfil: {receiptData?.investorType}</p>
@@ -218,7 +218,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
 
             <button
               onClick={handleReset}
-              className="w-full py-3 bg-[#0F172A] hover:bg-[#B59410] text-white font-bold text-xs uppercase tracking-widest transition-all cursor-pointer"
+              className="w-full py-3.5 bg-[#0F172A] hover:bg-[#00A8B5] text-white font-bold text-xs uppercase tracking-widest transition-all cursor-pointer rounded-xl min-h-[44px]"
             >
               Concluir & Regressar ao Dossiê
             </button>
