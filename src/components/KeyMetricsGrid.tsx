@@ -28,7 +28,7 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
           <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
             {isEn ? 'Share Deal Tax Savings' : 'Poupança Fiscal Share Deal'}
           </p>
-          <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
+          <p className="text-lg sm:text-xl font-extrabold text-[#0C2340] mt-1">
             {currency === 'EUR'
               ? isEn ? '€75,000 to €90,000' : '75 000 € a 90 000 €'
               : isEn ? `${formatCurrency(75000, currency)} to ${formatCurrency(90000, currency)}` : `${formatCurrency(75000, currency)} a ${formatCurrency(90000, currency)}`}
@@ -53,8 +53,8 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
           <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
             {isEn ? 'Capital Amortization' : 'Amortização de Capital'}
           </p>
-          <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
-            64% <span className="text-sm sm:text-base font-medium text-slate-500">{isEn ? 'of monthly debt' : 'da prestação'}</span>
+          <p className="text-lg sm:text-xl font-extrabold text-[#0C2340] mt-1">
+            64% <span className="text-xs sm:text-sm font-medium text-slate-500">{isEn ? 'of monthly debt' : 'da prestação'}</span>
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
             {isEn
@@ -76,7 +76,7 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
           <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
             {isEn ? 'Property Appraisal' : 'Avaliação do Imóvel'}
           </p>
-          <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
+          <p className="text-lg sm:text-xl font-extrabold text-[#0C2340] mt-1">
             ~{formatCurrency(1000000, currency)}
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
@@ -99,8 +99,8 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
           <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
             {isEn ? 'Payroll Costs' : 'Custos de Pessoal'}
           </p>
-          <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
-            0 € <span className="text-sm sm:text-base font-medium text-slate-500">{isEn ? '/ Month' : '/ Mês'}</span>
+          <p className="text-lg sm:text-xl font-extrabold text-[#0C2340] mt-1">
+            0 € <span className="text-xs sm:text-sm font-medium text-slate-500">{isEn ? '/ Month' : '/ Mês'}</span>
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
             {isEn
