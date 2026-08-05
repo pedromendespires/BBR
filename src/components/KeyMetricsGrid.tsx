@@ -33,8 +33,8 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
             {isEn
-              ? 'Direct acquisition of 100% corporate shares with total exemption from property transfer tax and stamp duty.'
-              : 'Aquisição direta de 100% das quotas societárias com isenção total de IMT e Imposto do Selo.'}
+              ? 'Direct acquisition of 100% corporate shares with total exemption from property transfer tax and stamp duty on property acquisition.'
+              : 'Aquisição direta de 100% das quotas societárias com isenção total de IMT e Imposto do Selo na aquisição do imóvel.'}
           </p>
         </div>
 
@@ -102,8 +102,8 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
             {isEn
-              ? `Average EBITDA of ${formatCurrency(36668, currency)}/yr with remote cloud management and smart lock automation.`
-              : `EBITDA médio de ${formatCurrency(36668, currency)}/ano com gestão remota e automação por domótica e fechaduras digitais.`}
+              ? `Average EBITDA of ${formatCurrency(36668, currency)}/yr with professional management.`
+              : `EBITDA médio de ${formatCurrency(36668, currency)}/ano com gestão profissionalizada.`}
           </p>
         </div>
       </div>

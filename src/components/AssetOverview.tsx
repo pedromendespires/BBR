@@ -217,12 +217,6 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
               </li>
             </ul>
 
-            <button
-              onClick={onOpenNda}
-              className="w-full mt-4 py-3.5 bg-[#00A8B5] hover:bg-[#008893] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md min-h-[44px]"
-            >
-              {isEn ? 'Schedule Property Tour' : 'Agendar Visita ao Imóvel'}
-            </button>
           </div>
         </div>
       </div>
