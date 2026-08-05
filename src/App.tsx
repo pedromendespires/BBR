@@ -32,28 +32,28 @@ export default function App() {
       />
 
       {/* Floating Quick Stats Cards */}
-      <KeyMetricsGrid currency={currency} onOpenNda={() => setIsNdaOpen(true)} />
+      <KeyMetricsGrid currency={currency} language={language} onOpenNda={() => setIsNdaOpen(true)} />
 
       {/* Capital Structure & Transaction Benefits */}
-      <CapitalStructureSection currency={currency} onOpenNda={() => setIsNdaOpen(true)} />
+      <CapitalStructureSection currency={currency} language={language} onOpenNda={() => setIsNdaOpen(true)} />
 
       {/* Interactive Financial Simulator */}
-      <InvestmentSimulator currency={currency} id="simulator-section" />
+      <InvestmentSimulator currency={currency} language={language} id="simulator-section" />
 
       {/* EBITDA & Revenue Seasonality Performance */}
-      <FinancialPerformance currency={currency} />
+      <FinancialPerformance currency={currency} language={language} />
 
       {/* Building Asset Explorer & 10 Suite Units */}
-      <AssetOverview currency={currency} onOpenNda={() => setIsNdaOpen(true)} />
+      <AssetOverview currency={currency} language={language} onOpenNda={() => setIsNdaOpen(true)} />
 
       {/* Strategic SWOT & Risk Matrix */}
-      <SwotAndRisk />
+      <SwotAndRisk language={language} />
 
       {/* Footer */}
-      <Footer />
+      <Footer language={language} />
 
       {/* Modals */}
-      <NdaModal isOpen={isNdaOpen} onClose={() => setIsNdaOpen(false)} />
+      <NdaModal isOpen={isNdaOpen} language={language} onClose={() => setIsNdaOpen(false)} />
     </div>
   );
 }

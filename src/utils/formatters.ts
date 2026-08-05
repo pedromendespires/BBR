@@ -27,7 +27,10 @@ export function formatCurrency(amount: number, currency: Currency = 'EUR'): stri
   return `${formatted} ${symbol}`;
 }
 
-export function formatPercent(value: number): string {
+export function formatPercent(value: number, lang: Language = 'PT'): string {
+  if (lang === 'EN') {
+    return `${value.toFixed(1)}%`;
+  }
   return `${value.toFixed(1).replace('.', ',')}%`;
 }
 

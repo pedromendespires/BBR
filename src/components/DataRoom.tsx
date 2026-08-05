@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Currency, DataRoomDoc } from '../types';
-import { DATA_ROOM_DOCS } from '../data/dossierData';
+import { Currency, DataRoomDoc, Language } from '../types';
+import { getDataRoomDocs } from '../data/dossierData';
 import { Lock, Unlock, FileText, Download, Eye, X } from 'lucide-react';
 
 interface DataRoomProps {
   currency: Currency;
+  language?: Language;
   onOpenNda: () => void;
   id?: string;
 }
 
-export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) => {
+export const DataRoom: React.FC<DataRoomProps> = ({ currency, language = 'PT' as Language, onOpenNda, id }) => {
+  const isEn = language === 'EN';
+  const dataRoomDocs = getDataRoomDocs(language);
   const [selectedDoc, setSelectedDoc] = useState<DataRoomDoc | null>(null);
 
   return (
@@ -19,13 +22,17 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-white/10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5]">06. Documentação VDR</div>
+              <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5]">
+                {isEn ? '06. VDR Documentation' : '06. Documentação VDR'}
+              </div>
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               Virtual Data Room <span className="font-normal text-[#00A8B5]">(VDR)</span>
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm mt-2 font-normal">
-              Consulte a documentação legal, contabilística e técnica da transação Vetores & Hipotenusas, Lda.
+              {isEn
+                ? 'Review official legal, financial, and technical transaction documents for Vetores & Hipotenusas, Lda.'
+                : 'Consulte a documentação legal, contabilística e técnica da transação Vetores & Hipotenusas, Lda.'}
             </p>
           </div>
 
@@ -34,13 +41,13 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
             className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 bg-[#00A8B5] hover:bg-[#008893] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer shrink-0 shadow-md min-h-[44px]"
           >
             <Lock className="w-4 h-4 text-white" />
-            <span>Solicitar Acesso VDR (NDA)</span>
+            <span>{isEn ? 'Request VDR Access (NDA)' : 'Solicitar Acesso VDR (NDA)'}</span>
           </button>
         </div>
 
         {/* Documents Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
-          {DATA_ROOM_DOCS.map((doc) => (
+          {dataRoomDocs.map((doc) => (
             <div
               key={doc.id}
               className="bg-[#071629] p-5 sm:p-6 rounded-2xl border border-slate-700/60 hover:border-[#00A8B5] transition-all flex flex-col justify-between group"
@@ -53,11 +60,11 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
                   </span>
                   {doc.isProtected ? (
                     <span className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-amber-400">
-                      <Lock className="w-3 h-3" /> Requer NDA
+                      <Lock className="w-3 h-3" /> {isEn ? 'Requires NDA' : 'Requer NDA'}
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-emerald-400">
-                      <Unlock className="w-3 h-3" /> Livre
+                      <Unlock className="w-3 h-3" /> {isEn ? 'Public' : 'Livre'}
                     </span>
                   )}
                 </div>
@@ -88,7 +95,7 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
                   className="flex items-center gap-1 text-xs text-slate-300 hover:text-white font-medium cursor-pointer p-1 min-h-[36px]"
                 >
                   <Eye className="w-3.5 h-3.5" />
-                  <span>Resumo</span>
+                  <span>{isEn ? 'Summary' : 'Resumo'}</span>
                 </button>
 
                 <button
@@ -96,7 +103,7 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
                   className="flex items-center gap-1.5 px-4 py-2 bg-slate-800 hover:bg-[#00A8B5] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer border border-slate-700 min-h-[38px]"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Obter</span>
+                  <span>{isEn ? 'Get' : 'Obter'}</span>
                 </button>
               </div>
             </div>
@@ -121,7 +128,7 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
               </div>
 
               <div className="p-4 bg-[#071629] rounded-2xl border border-slate-700 text-xs text-slate-300 leading-relaxed space-y-2 font-normal">
-                <p className="font-bold text-white">Resumo do Conteúdo:</p>
+                <p className="font-bold text-white">{isEn ? 'Content Summary:' : 'Resumo do Conteúdo:'}</p>
                 <p>{selectedDoc.description}</p>
               </div>
 
@@ -130,7 +137,7 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
                   onClick={() => setSelectedDoc(null)}
                   className="px-4 py-2.5 bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer min-h-[40px]"
                 >
-                  Fechar
+                  {isEn ? 'Close' : 'Fechar'}
                 </button>
                 <button
                   onClick={() => {
@@ -139,7 +146,7 @@ export const DataRoom: React.FC<DataRoomProps> = ({ currency, onOpenNda, id }) =
                   }}
                   className="px-5 py-2.5 bg-[#00A8B5] hover:bg-[#008893] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md min-h-[40px]"
                 >
-                  Solicitar Acesso Completo
+                  {isEn ? 'Request Full Access' : 'Solicitar Acesso Completo'}
                 </button>
               </div>
             </div>

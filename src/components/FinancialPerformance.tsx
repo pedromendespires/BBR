@@ -1,16 +1,21 @@
 import React from 'react';
-import { Currency } from '../types';
+import { Currency, Language } from '../types';
 import { formatCurrency, formatPercent } from '../utils/formatters';
-import { EBITDA_HISTORY, RISK_RETURN_BENCHMARKS } from '../data/dossierData';
+import { getEbitdaHistory, getRiskReturnBenchmarks } from '../data/dossierData';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ScatterChart, Scatter, ZAxis } from 'recharts';
 import { TrendingUp, Sun, GraduationCap } from 'lucide-react';
 
 interface FinancialPerformanceProps {
   currency: Currency;
+  language?: Language;
 }
 
-export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ currency }) => {
-  const ebitdaChartData = EBITDA_HISTORY.map((item) => ({
+export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ currency, language = 'PT' as Language }) => {
+  const isEn = language === 'EN';
+  const ebitdaHistoryData = getEbitdaHistory(language);
+  const riskReturnBenchmarks = getRiskReturnBenchmarks(language);
+
+  const ebitdaChartData = ebitdaHistoryData.map((item) => ({
     year: item.year,
     EBITDA: item.ebitda,
     Receita: item.revenue,
@@ -19,22 +24,22 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
 
   const revenueSeasonData = [
     {
-      label: 'Época Letiva (10 M) - Mínimo',
+      label: isEn ? 'Academic (10 M) - Min' : 'Época Letiva (10 M) - Mínimo',
       value: 70000,
       fill: '#0C2340',
     },
     {
-      label: 'Época Letiva (10 M) - Máximo',
+      label: isEn ? 'Academic (10 M) - Max' : 'Época Letiva (10 M) - Máximo',
       value: 90000,
       fill: '#183B6B',
     },
     {
-      label: 'Verão (2 M) - Conservador',
+      label: isEn ? 'Summer (2 M) - Conservative' : 'Verão (2 M) - Conservador',
       value: 28800,
       fill: '#00A8B5',
     },
     {
-      label: 'Verão (2 M) - Otimista',
+      label: isEn ? 'Summer (2 M) - Optimistic' : 'Verão (2 M) - Otimista',
       value: 36000,
       fill: '#FF8C42',
     },
@@ -45,12 +50,19 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl">
-          <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">03. Histórico e Projeções</div>
+          <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">
+            {isEn ? '03. Historical Performance & Projections' : '03. Histórico e Projeções'}
+          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
-            Desempenho Financeiro Histórico <span className="font-normal text-[#00A8B5]">& Modelo Híbrido</span>
+            {isEn ? 'Historical Financial Performance' : 'Desempenho Financeiro Histórico'}{' '}
+            <span className="font-normal text-[#00A8B5]">
+              {isEn ? '& Hybrid Model' : '& Modelo Híbrido'}
+            </span>
           </h2>
           <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
-            Consistência auditada nos últimos 3 anos com operação enxuta, alta ocupação e flexibilidade sazonal.
+            {isEn
+              ? 'Audited consistency over the past 3 years with lean operations, high occupancy, and seasonal agility.'
+              : 'Consistência auditada nos últimos 3 anos com operação enxuta, alta ocupação e flexibilidade sazonal.'}
           </p>
         </div>
 
@@ -62,14 +74,16 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
               <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <h3 className="text-base sm:text-lg font-bold text-[#0C2340] flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#00A8B5]" />
-                  Evolução do EBITDA (2023-2025)
+                  {isEn ? 'EBITDA Evolution (2023-2025)' : 'Evolução do EBITDA (2023-2025)'}
                 </h3>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 bg-[#0C2340] text-white rounded-lg">
-                  Média: {formatCurrency(36668, currency)}/ano
+                  {isEn ? 'Avg:' : 'Média:'} {formatCurrency(36668, currency)}/{isEn ? 'yr' : 'ano'}
                 </span>
               </div>
               <p className="text-xs text-slate-500 mb-6 font-normal">
-                Dados auditados comprovando custos fixos reduzidos e operação autónoma sem encargos com pessoal.
+                {isEn
+                  ? 'Audited track record demonstrating reduced fixed costs and self-sufficient operations with zero payroll burden.'
+                  : 'Dados auditados comprovando custos fixos reduzidos e operação autónoma sem encargos com pessoal.'}
               </p>
 
               <div className="h-56 sm:h-64 lg:h-72 w-full">
@@ -97,11 +111,11 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
             </div>
 
             <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1">
-              <p className="font-bold text-[#0C2340]">Destaques Auditados (2023-2025):</p>
+              <p className="font-bold text-[#0C2340]">{isEn ? 'Audited Highlights (2023-2025):' : 'Destaques Auditados (2023-2025):'}</p>
               <ul className="list-disc list-inside space-y-1 text-slate-600 font-normal">
-                <li>2023: 39.222 € (Pico de ocupação de Verão)</li>
-                <li>2024: 35.295 € (Ajuste de eficiência e climatização)</li>
-                <li>2025: 35.486 € (Consolidação de tarifários académicos)</li>
+                <li>{isEn ? '2023: €39,222 (Peak summer occupancy)' : '2023: 39.222 € (Pico de ocupação de Verão)'}</li>
+                <li>{isEn ? '2024: €35,295 (Efficiency and HVAC adjustments)' : '2024: 35.295 € (Ajuste de eficiência e climatização)'}</li>
+                <li>{isEn ? '2025: €35,486 (Academic rate consolidation)' : '2025: 35.486 € (Consolidação de tarifários académicos)'}</li>
               </ul>
             </div>
           </div>
@@ -112,14 +126,16 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
               <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <h3 className="text-base sm:text-lg font-bold text-[#0C2340] flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF8C42]" />
-                  Perfil Risco vs. Retorno
+                  {isEn ? 'Risk vs. Return Profile' : 'Perfil Risco vs. Retorno'}
                 </h3>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 bg-[#FF8C42] text-white rounded-lg">
-                  Yield ~9,1%
+                  Yield ~9.1%
                 </span>
               </div>
               <p className="text-xs text-slate-500 mb-6 font-normal">
-                Comparativo de rendimento líquido em relação a outras classes de ativos imobiliários na Europa.
+                {isEn
+                  ? 'Comparative net yield analysis relative to traditional European real estate asset classes.'
+                  : 'Comparativo de rendimento líquido em relação a outras classes de ativos imobiliários na Europa.'}
               </p>
 
               <div className="h-56 sm:h-64 lg:h-72 w-full">
@@ -128,7 +144,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                     <XAxis
                       type="number"
                       dataKey="risk"
-                      name="Risco Percebido"
+                      name={isEn ? 'Perceived Risk' : 'Risco Percebido'}
                       stroke="#64748b"
                       fontSize={11}
                       domain={[0, 20]}
@@ -152,14 +168,14 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                         return (
                           <div className="bg-[#0C2340] text-white p-3 rounded-lg text-xs space-y-1 shadow-lg">
                             <p className="font-bold text-[#00A8B5]">{data.name}</p>
-                            <p>Net Yield: {formatPercent(data.yield)}</p>
-                            <p>Índice de Risco: {data.risk}/20</p>
+                            <p>Net Yield: {formatPercent(data.yield, language)}</p>
+                            <p>{isEn ? 'Risk Index:' : 'Índice de Risco:'} {data.risk}/20</p>
                           </div>
                         );
                       }}
                     />
-                    <Scatter name="Ativos" data={RISK_RETURN_BENCHMARKS}>
-                      {RISK_RETURN_BENCHMARKS.map((entry, index) => (
+                    <Scatter name={isEn ? 'Assets' : 'Ativos'} data={riskReturnBenchmarks}>
+                      {riskReturnBenchmarks.map((entry, index) => (
                         <Cell key={`scatter-cell-${index}`} fill={entry.name.includes('Besmart') ? '#00A8B5' : '#0C2340'} />
                       ))}
                     </Scatter>
@@ -169,7 +185,10 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
             </div>
 
             <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed font-normal">
-              <strong className="font-bold text-[#0C2340]">Posicionamento Privilegiado:</strong> O projeto Besmart oferece um prémio de rentabilidade significativo (~9,1%) relativamente à habitação tradicional (5,2%) e fundos comerciais (5,8%), suportado pela escassez de alojamento académico no centro de Aveiro.
+              <strong className="font-bold text-[#0C2340]">{isEn ? 'Prime Positioning:' : 'Posicionamento Privilegiado:'}</strong>{' '}
+              {isEn
+                ? 'The Besmart project delivers a significant yield premium (~9.1%) over standard residential leases (5.2%) and commercial funds (5.8%), supported by structural student housing scarcity in central Aveiro.'
+                : 'O projeto Besmart oferece um prémio de rentabilidade significativo (~9,1%) relativamente à habitação tradicional (5,2%) e fundos comerciais (5,8%), suportado pela escassez de alojamento académico no centro de Aveiro.'}
             </div>
           </div>
         </div>
@@ -178,10 +197,15 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
         <div className="bg-white p-5 sm:p-8 lg:p-12 rounded-2xl border border-slate-200 shadow-sm">
           <div className="max-w-2xl mb-8">
             <h3 className="text-xl sm:text-2xl font-extrabold text-[#0C2340]">
-              Modelo de Negócio Híbrido: <span className="font-normal text-[#00A8B5]">Estabilidade + Picos de Lucro</span>
+              {isEn ? 'Hybrid Business Model:' : 'Modelo de Negócio Híbrido:'}{' '}
+              <span className="font-normal text-[#00A8B5]">
+                {isEn ? 'Stability + Profit Peaks' : 'Estabilidade + Picos de Lucro'}
+              </span>
             </h3>
             <p className="text-xs text-slate-500 mt-1 font-normal">
-              Combinação otimizada entre alojamento universitário de média duração e exploração turística de alta margem no Verão.
+              {isEn
+                ? 'Optimized dual strategy combining mid-term academic rentals with high-margin short-term summer tourism.'
+                : 'Combinação otimizada entre alojamento universitário de média duração e exploração turística de alta margem no Verão.'}
             </p>
           </div>
 
@@ -193,7 +217,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                   <XAxis type="number" stroke="#64748b" fontSize={11} tickFormatter={(v) => `${v / 1000}k€`} />
                   <YAxis dataKey="label" type="category" stroke="#475569" fontSize={10} width={150} />
                   <Tooltip
-                    formatter={(val: any) => [formatCurrency(Number(val), currency), 'Faturação Total']}
+                    formatter={(val: any) => [formatCurrency(Number(val), currency), isEn ? 'Total Revenue' : 'Faturação Total']}
                     contentStyle={{ backgroundColor: '#0C2340', color: '#fff', fontSize: '11px', borderRadius: '8px' }}
                   />
                   <Bar dataKey="value" radius={[0, 6, 6, 0]}>
@@ -213,12 +237,18 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                     <GraduationCap className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#0C2340] text-sm">Época Letiva (Setembro a Junho)</h4>
-                    <p className="text-[10px] uppercase tracking-wider text-[#00A8B5] font-extrabold">10 Meses de Contrato Garantido</p>
+                    <h4 className="font-bold text-[#0C2340] text-sm">
+                      {isEn ? 'Academic Season (Sept to June)' : 'Época Letiva (Setembro a Junho)'}
+                    </h4>
+                    <p className="text-[10px] uppercase tracking-wider text-[#00A8B5] font-extrabold">
+                      {isEn ? '10 Months Guaranteed Leases' : '10 Meses de Contrato Garantido'}
+                    </p>
                   </div>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  Focado em estudantes internacionais e investigadores da Universidade de Aveiro. Faturação estável de <strong>7.000 € a 9.000 € / mês</strong>, cobrindo a totalidade do OPEX.
+                  {isEn
+                    ? 'Targeted at international students and researchers at the University of Aveiro. Consistent gross revenue of €7,000 to €9,000/month, covering all annual OPEX.'
+                    : 'Focado em estudantes internacionais e investigadores da Universidade de Aveiro. Faturação estável de 7.000 € a 9.000 € / mês, cobrindo a totalidade do OPEX.'}
                 </p>
               </div>
 
@@ -228,12 +258,18 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                     <Sun className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#0C2340] text-sm">Época Balnear (Julho e Agosto)</h4>
-                    <p className="text-[10px] uppercase tracking-wider text-[#FF8C42] font-extrabold">2 Meses de Alta Rentabilidade AL</p>
+                    <h4 className="font-bold text-[#0C2340] text-sm">
+                      {isEn ? 'Summer Season (July & August)' : 'Época Balnear (Julho e Agosto)'}
+                    </h4>
+                    <p className="text-[10px] uppercase tracking-wider text-[#FF8C42] font-extrabold">
+                      {isEn ? '2 Months High-Yield Tourism' : '2 Meses de Alta Rentabilidade AL'}
+                    </p>
                   </div>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  Aproveitamento do turismo em Aveiro. Faturação total no Verão entre <strong>28.000 € e 36.000 €</strong>, impulsionando a margem líquida global.
+                  {isEn
+                    ? 'Capitalizes on summer tourism in Aveiro. Total summer gross revenue ranging between €28,000 and €36,000, boosting annual net profitability.'
+                    : 'Aproveitamento do turismo em Aveiro. Faturação total no Verão entre 28.000 € e 36.000 €, impulsionando a margem líquida global.'}
                 </p>
               </div>
             </div>

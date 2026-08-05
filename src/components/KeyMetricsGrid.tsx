@@ -1,14 +1,17 @@
 import React from 'react';
-import { Currency } from '../types';
+import { Currency, Language } from '../types';
 import { formatCurrency } from '../utils/formatters';
 import { ShieldCheck, PiggyBank, Landmark, Cpu } from 'lucide-react';
 
 interface KeyMetricsGridProps {
   currency: Currency;
+  language?: Language;
   onOpenNda: () => void;
 }
 
-export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency }) => {
+export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, language = 'PT' }) => {
+  const isEn = language === 'EN';
+
   return (
     <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 my-8 sm:my-12 relative z-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 2xl:gap-8">
@@ -19,15 +22,19 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency }) => {
               <PiggyBank className="w-5 h-5" />
             </div>
             <span className="text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
-              Isenção IMT
+              {isEn ? 'Transfer Tax Exemption' : 'Isenção IMT'}
             </span>
           </div>
-          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Poupança Fiscal Share Deal</p>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+            {isEn ? 'Share Deal Tax Savings' : 'Poupança Fiscal Share Deal'}
+          </p>
           <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
             {formatCurrency(75000, currency)}
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
-            Aquisição direta de 100% das quotas societárias com isenção total de IMT e Imposto do Selo.
+            {isEn
+              ? 'Direct acquisition of 100% corporate shares with total exemption from property transfer tax and stamp duty.'
+              : 'Aquisição direta de 100% das quotas societárias com isenção total de IMT e Imposto do Selo.'}
           </p>
         </div>
 
@@ -38,15 +45,19 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency }) => {
               <Landmark className="w-5 h-5" />
             </div>
             <span className="text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
-              Equity Passivo
+              {isEn ? 'Passive Equity' : 'Equity Passivo'}
             </span>
           </div>
-          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Amortização de Capital</p>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+            {isEn ? 'Capital Amortization' : 'Amortização de Capital'}
+          </p>
           <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
-            64% <span className="text-sm sm:text-base font-medium text-slate-500">da prestação</span>
+            64% <span className="text-sm sm:text-base font-medium text-slate-500">{isEn ? 'of monthly debt' : 'da prestação'}</span>
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
-            Aproximadamente {formatCurrency(23000, currency)}/ano de criação contínua de património líquido pagas pelo fluxo operacional.
+            {isEn
+              ? `Approximately ${formatCurrency(23000, currency)}/yr of equity build-up fully funded by operational cash flows.`
+              : `Aproximadamente ${formatCurrency(23000, currency)}/ano de criação contínua de património líquido pagas pelo fluxo operacional.`}
           </p>
         </div>
 
@@ -57,15 +68,19 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency }) => {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <span className="text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#FFF4EC] text-[#FF8C42] border border-[#FF8C42]/30">
-              87.5% Cobertura
+              {isEn ? '87.5% Asset Coverage' : '87.5% Cobertura'}
             </span>
           </div>
-          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Avaliação do Imóvel</p>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+            {isEn ? 'Property Appraisal' : 'Avaliação do Imóvel'}
+          </p>
           <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
             ~{formatCurrency(1000000, currency)}
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
-            Prémio operacional de apenas {formatCurrency(200000, currency)} sobre o valor tangível do imóvel no centro histórico.
+            {isEn
+              ? `Business premium of only ${formatCurrency(200000, currency)} over the prime historic center real estate valuation.`
+              : `Prémio operacional de apenas ${formatCurrency(200000, currency)} sobre o valor tangível do imóvel no centro histórico.`}
           </p>
         </div>
 
@@ -76,15 +91,19 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency }) => {
               <Cpu className="w-5 h-5" />
             </div>
             <span className="text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
-              Operação Autónoma
+              {isEn ? 'Autonomous Operation' : 'Operação Autónoma'}
             </span>
           </div>
-          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Custos de Pessoal</p>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+            {isEn ? 'Payroll Costs' : 'Custos de Pessoal'}
+          </p>
           <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
-            0 € <span className="text-sm sm:text-base font-medium text-slate-500">/ Mês</span>
+            0 € <span className="text-sm sm:text-base font-medium text-slate-500">{isEn ? '/ Month' : '/ Mês'}</span>
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
-            EBITDA médio de {formatCurrency(36668, currency)}/ano com gestão remota e automação por domótica e fechaduras digitais.
+            {isEn
+              ? `Average EBITDA of ${formatCurrency(36668, currency)}/yr with remote cloud management and smart lock automation.`
+              : `EBITDA médio de ${formatCurrency(36668, currency)}/ano com gestão remota e automação por domótica e fechaduras digitais.`}
           </p>
         </div>
       </div>

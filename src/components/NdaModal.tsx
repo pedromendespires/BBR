@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import { NdaFormData } from '../types';
+import { Language, NdaFormData } from '../types';
 import confetti from 'canvas-confetti';
 import { Lock, CheckCircle2, X, Building, Mail, Phone, User, Send } from 'lucide-react';
 
 interface NdaModalProps {
   isOpen: boolean;
+  language?: Language;
   onClose: () => void;
 }
 
-export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
+export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, language = 'PT', onClose }) => {
+  const isEn = language === 'EN';
+
   const [formData, setFormData] = useState<NdaFormData>({
     name: '',
     email: '',
     phone: '',
     company: '',
-    investorType: 'Fundo ou Family Office',
+    investorType: isEn ? 'Fund or Family Office' : 'Fundo ou Family Office',
     agreedToTerms: true,
-    interestLevel: 'Comprar Ativo Imobiliário + Operação (1.2M€)',
+    interestLevel: isEn ? 'Acquire Real Estate + Business (€1.2M)' : 'Comprar Ativo Imobiliário + Operação (1.2M€)',
   });
 
   const [submitting, setSubmitting] = useState(false);
@@ -74,21 +77,23 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
               <div className="flex items-center justify-between mb-2">
                 <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5] flex items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-[#00A8B5]" />
-                  <span>Acordo de Confidencialidade (NDA)</span>
+                  <span>{isEn ? 'Non-Disclosure Agreement (NDA)' : 'Acordo de Confidencialidade (NDA)'}</span>
                 </div>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-[#0C2340] tracking-tight">
-                Solicitar Acesso ao Dossiê Completo
+                {isEn ? 'Request Full Memorandum Access' : 'Solicitar Acesso ao Dossiê Completo'}
               </h3>
               <p className="text-xs text-slate-600 mt-1 font-normal leading-relaxed">
-                Aceda às demonstrações financeiras detalhadas, minuta de aquisição de quotas e agende a visita presencial.
+                {isEn
+                  ? 'Access detailed financial statements, share purchase agreement draft, and schedule a private site visit.'
+                  : 'Aceda às demonstrações financeiras detalhadas, minuta de aquisição de quotas e agende a visita presencial.'}
               </p>
             </div>
 
             {/* Input Name */}
             <div>
               <label className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider mb-1 block">
-                Nome Completo *
+                {isEn ? 'Full Name *' : 'Nome Completo *'}
               </label>
               <div className="relative">
                 <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
@@ -97,7 +102,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Ex: Dra. Sofia Monteiro"
+                  placeholder={isEn ? 'E.g., Dr. Sarah Jenkins' : 'Ex: Dra. Sofia Monteiro'}
                   className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                 />
               </div>
@@ -107,7 +112,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider mb-1 block">
-                  Email Institucional *
+                  {isEn ? 'Corporate Email *' : 'Email Institucional *'}
                 </label>
                 <div className="relative">
                   <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
@@ -116,7 +121,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="sofia@investimentos.pt"
+                    placeholder="sarah@investments.com"
                     className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                   />
                 </div>
@@ -124,7 +129,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
 
               <div>
                 <label className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider mb-1 block">
-                  Telefone / WhatsApp
+                  {isEn ? 'Phone / WhatsApp' : 'Telefone / WhatsApp'}
                 </label>
                 <div className="relative">
                   <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
@@ -132,7 +137,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+351 910 000 000"
+                    placeholder="+1 (555) 000-0000"
                     className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                   />
                 </div>
@@ -143,7 +148,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider mb-1 block">
-                  Empresa / Entidade
+                  {isEn ? 'Company / Entity' : 'Empresa / Entidade'}
                 </label>
                 <div className="relative">
                   <Building className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
@@ -151,7 +156,7 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="Ex: Capital Asset Mgt"
+                    placeholder={isEn ? 'E.g., Global Capital Mgt' : 'Ex: Capital Asset Mgt'}
                     className="w-full bg-white border border-black/10 pl-9 pr-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                   />
                 </div>
@@ -159,17 +164,25 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
 
               <div>
                 <label className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider mb-1 block">
-                  Perfil de Investidor
+                  {isEn ? 'Investor Profile' : 'Perfil de Investidor'}
                 </label>
                 <select
                   value={formData.investorType}
                   onChange={(e) => setFormData({ ...formData, investorType: e.target.value })}
                   className="w-full bg-white border border-black/10 px-3 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#00A8B5] rounded-lg font-light min-h-[42px]"
                 >
-                  <option value="Fundo ou Family Office">Fundo / Family Office</option>
-                  <option value="Investidor Individual">Investidor Individual / Privado</option>
-                  <option value="Consultor / Broker">Broker ou Consultor M&A</option>
-                  <option value="Outro">Outro</option>
+                  <option value={isEn ? 'Fund or Family Office' : 'Fundo ou Family Office'}>
+                    {isEn ? 'Fund / Family Office' : 'Fundo / Family Office'}
+                  </option>
+                  <option value={isEn ? 'Individual Investor' : 'Investidor Individual'}>
+                    {isEn ? 'Individual / Private Investor' : 'Investidor Individual / Privado'}
+                  </option>
+                  <option value={isEn ? 'Advisor / Broker' : 'Consultor / Broker'}>
+                    {isEn ? 'Broker or M&A Advisor' : 'Broker ou Consultor M&A'}
+                  </option>
+                  <option value={isEn ? 'Other' : 'Outro'}>
+                    {isEn ? 'Other' : 'Outro'}
+                  </option>
                 </select>
               </div>
             </div>
@@ -184,7 +197,9 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
                 className="mt-0.5 accent-[#00A8B5] w-4 h-4"
               />
               <label htmlFor="terms" className="text-[10px] text-slate-600 leading-tight font-light cursor-pointer">
-                Confirmo que as informações prestadas são verdadeiras e aceito manter sob estrita confidencialidade todos os dados financeiros recebidos relativos à Vetores & Hipotenusas, Lda.
+                {isEn
+                  ? 'I confirm that all provided information is accurate and agree to keep strictly confidential all financial and operational data received regarding Vetores & Hipotenusas, Lda.'
+                  : 'Confirmo que as informações prestadas são verdadeiras e aceito manter sob estrita confidencialidade todos os dados financeiros recebidos relativos à Vetores & Hipotenusas, Lda.'}
               </label>
             </div>
 
@@ -194,7 +209,15 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
               className="w-full py-3.5 bg-[#0F172A] hover:bg-[#00A8B5] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 min-h-[44px]"
             >
               <Send className="w-3.5 h-3.5" />
-              <span>{submitting ? 'A Processar Pedido...' : 'Enviar Pedido de NDA & VDR'}</span>
+              <span>
+                {submitting
+                  ? isEn
+                    ? 'Processing Request...'
+                    : 'A Processar Pedido...'
+                  : isEn
+                  ? 'Submit NDA & Request VDR Access'
+                  : 'Enviar Pedido de NDA & VDR'}
+              </span>
             </button>
           </form>
         ) : (
@@ -203,24 +226,35 @@ export const NdaModal: React.FC<NdaModalProps> = ({ isOpen, onClose }) => {
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A]">Pedido Submetido com Sucesso!</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A]">
+              {isEn ? 'Request Submitted Successfully!' : 'Pedido Submetido com Sucesso!'}
+            </h3>
             <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto font-light">
-              Obrigado pelo interesse na Besmart Boutique Residence. O seu código de referência do pedido é{' '}
-              <strong className="text-[#00A8B5] font-bold">{receiptData?.id || 'NDA-982134'}</strong>. O responsável do dossiê entrará em contacto dentro de 24 horas.
+              {isEn ? (
+                <>
+                  Thank you for your interest in Besmart Boutique Residence. Your request reference code is{' '}
+                  <strong className="text-[#00A8B5] font-bold">{receiptData?.id || 'NDA-982134'}</strong>. Our transaction desk will reach out within 24 hours.
+                </>
+              ) : (
+                <>
+                  Obrigado pelo interesse na Besmart Boutique Residence. O seu código de referência do pedido é{' '}
+                  <strong className="text-[#00A8B5] font-bold">{receiptData?.id || 'NDA-982134'}</strong>. O responsável do dossiê entrará em contacto dentro de 24 horas.
+                </>
+              )}
             </p>
 
             <div className="bg-white p-4 border border-black/10 text-left text-xs space-y-1 font-light rounded-xl">
-              <p className="font-bold text-[#0F172A]">Resumo da Solicitação:</p>
-              <p className="text-slate-600">Investidor: {receiptData?.name}</p>
+              <p className="font-bold text-[#0F172A]">{isEn ? 'Request Summary:' : 'Resumo da Solicitação:'}</p>
+              <p className="text-slate-600">{isEn ? 'Investor:' : 'Investidor:'} {receiptData?.name}</p>
               <p className="text-slate-600">Email: {receiptData?.email}</p>
-              <p className="text-slate-600">Perfil: {receiptData?.investorType}</p>
+              <p className="text-slate-600">{isEn ? 'Profile:' : 'Perfil:'} {receiptData?.investorType}</p>
             </div>
 
             <button
               onClick={handleReset}
               className="w-full py-3.5 bg-[#0F172A] hover:bg-[#00A8B5] text-white font-bold text-xs uppercase tracking-widest transition-all cursor-pointer rounded-xl min-h-[44px]"
             >
-              Concluir & Regressar ao Dossiê
+              {isEn ? 'Complete & Return to Dossier' : 'Concluir & Regressar ao Dossiê'}
             </button>
           </div>
         )}

@@ -1,28 +1,38 @@
 import React, { useState } from 'react';
-import { Currency } from '../types';
-import { PROPERTY_GALLERY } from '../data/dossierData';
+import { Currency, Language } from '../types';
+import { getPropertyGallery } from '../data/dossierData';
 import { CheckCircle2, MapPin, X, Camera, Eye } from 'lucide-react';
 
 interface AssetOverviewProps {
   currency: Currency;
+  language?: Language;
   onOpenNda: () => void;
 }
 
-export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
-  const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState<typeof PROPERTY_GALLERY[0] | null>(null);
+export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as Language, onOpenNda }) => {
+  const isEn = language === 'EN';
+  const gallery = getPropertyGallery(language);
+  const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState<typeof gallery[0] | null>(null);
 
-  const filteredGallery = PROPERTY_GALLERY;
+  const filteredGallery = gallery;
 
   return (
     <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
       {/* Section Header */}
       <div className="max-w-3xl mb-8 sm:mb-12">
-        <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">04. Portfólio de Unidades</div>
+        <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">
+          {isEn ? '04. Unit Portfolio' : '04. Portfólio de Unidades'}
+        </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
-          Fotografias do Ativo <span className="font-normal text-[#00A8B5]">& Portfólio de Unidades</span>
+          {isEn ? 'Asset Photos' : 'Fotografias do Ativo'}{' '}
+          <span className="font-normal text-[#00A8B5]">
+            {isEn ? '& Unit Portfolio' : '& Portfólio de Unidades'}
+          </span>
         </h2>
         <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
-          Edifício reabilitado no centro histórico de Aveiro. Explore as fotografias reais das instalações e as especificações das 10 suítes e estúdios.
+          {isEn
+            ? 'Fully rehabilitated building in Aveiro historic city center. Explore real photos of facilities and detailed specifications for all 10 suites and studios.'
+            : 'Edifício reabilitado no centro histórico de Aveiro. Explore as fotografias reais das instalações e as especificações das 10 suítes e estúdios.'}
         </p>
       </div>
 
@@ -30,43 +40,63 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
       <div className="mb-8 sm:mb-12 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5]">Estrutura do Edifício</span>
-            <h3 className="text-lg sm:text-xl font-extrabold text-[#0C2340]">420,91 m² Área Bruta Total • 3 Pisos • 10 Suites (21 Camas)</h3>
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5]">
+              {isEn ? 'Building Structure' : 'Estrutura do Edifício'}
+            </span>
+            <h3 className="text-lg sm:text-xl font-extrabold text-[#0C2340]">
+              {isEn
+                ? '420.91 m² Total Gross Area • 3 Floors • 10 Suites (21 Beds)'
+                : '420,91 m² Área Bruta Total • 3 Pisos • 10 Suites (21 Camas)'}
+            </h3>
           </div>
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl w-max">
-            <span>Ano Construção: 1992 (Remodelado 2020)</span>
-            <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-black border border-amber-200">Classe D</span>
+            <span>{isEn ? 'Year Built: 1992 (Refurbished 2020)' : 'Ano Construção: 1992 (Remodelado 2020)'}</span>
+            <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-black border border-amber-200">
+              {isEn ? 'Class D' : 'Classe D'}
+            </span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-xs text-slate-600">
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
             <h4 className="font-extrabold text-[#0C2340] text-sm flex items-center justify-between">
-              <span>Rés do Chão</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#E6F7F8] text-[#00A8B5] rounded-full">2 Suites</span>
+              <span>{isEn ? 'Ground Floor' : 'Rés do Chão'}</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#E6F7F8] text-[#00A8B5] rounded-full">
+                {isEn ? '2 Suites' : '2 Suites'}
+              </span>
             </h4>
             <p className="leading-relaxed">
-              2 suites, 1 casa de banho de apoio, cozinha equipada, sala de estar, lounge, sala de estudo e logradouro privado com jardim exterior.
+              {isEn
+                ? '2 suites, 1 guest bathroom, fully equipped kitchen, living lounge, study room, and private patio with outdoor garden.'
+                : '2 suites, 1 casa de banho de apoio, cozinha equipada, sala de estar, lounge, sala de estudo e logradouro privado com jardim exterior.'}
             </p>
           </div>
 
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
             <h4 className="font-extrabold text-[#0C2340] text-sm flex items-center justify-between">
-              <span>1.º Andar</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#E6F7F8] text-[#00A8B5] rounded-full">4 Suites</span>
+              <span>{isEn ? '1st Floor' : '1.º Andar'}</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#E6F7F8] text-[#00A8B5] rounded-full">
+                {isEn ? '4 Suites' : '4 Suites'}
+              </span>
             </h4>
             <p className="leading-relaxed">
-              4 suites e 1 casa de banho de apoio. Quartos amplos com luz natural e zonas de trabalho.
+              {isEn
+                ? '4 suites and 1 support bathroom. Spacious bedrooms with natural light and dedicated study workspaces.'
+                : '4 suites e 1 casa de banho de apoio. Quartos amplos com luz natural e zonas de trabalho.'}
             </p>
           </div>
 
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
             <h4 className="font-extrabold text-[#0C2340] text-sm flex items-center justify-between">
-              <span>2.º Andar</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#E6F7F8] text-[#00A8B5] rounded-full">4 Suites</span>
+              <span>{isEn ? '2nd Floor' : '2.º Andar'}</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#E6F7F8] text-[#00A8B5] rounded-full">
+                {isEn ? '4 Suites' : '4 Suites'}
+              </span>
             </h4>
             <p className="leading-relaxed">
-              4 suites exclusivas. Configuração de 21 camas no total do edifício (1 quarto individual, 7 duplos e 2 triplos).
+              {isEn
+                ? '4 premium suites. Total building capacity of 21 beds (1 single bedroom, 7 double bedrooms, and 2 triple bedrooms).'
+                : '4 suites exclusivas. Configuração de 21 camas no total do edifício (1 quarto individual, 7 duplos e 2 triplos).'}
             </p>
           </div>
         </div>
@@ -78,9 +108,13 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00A8B5]">
               <Camera className="w-4 h-4" />
-              <span>Galeria Oficial Besmart Boutique Residence</span>
+              <span>{isEn ? 'Official Gallery - Besmart Boutique Residence' : 'Galeria Oficial Besmart Boutique Residence'}</span>
             </div>
-            <p className="text-xs text-slate-400 mt-1">Imagens reais da fachada, áreas comuns, suítes e pátio interior em Aveiro.</p>
+            <p className="text-xs text-slate-400 mt-1">
+              {isEn
+                ? 'Real photos of exterior façade, common spaces, suites, and private inner patio in Aveiro.'
+                : 'Imagens reais da fachada, áreas comuns, suítes e pátio interior em Aveiro.'}
+            </p>
           </div>
         </div>
 
@@ -120,49 +154,66 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
           <div className="lg:col-span-7 space-y-4">
             <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] flex items-center gap-2">
               <MapPin className="w-4 h-4 text-[#00A8B5]" />
-              <span>Localização Estratégica em Aveiro</span>
+              <span>{isEn ? 'Strategic Location in Aveiro' : 'Localização Estratégica em Aveiro'}</span>
             </div>
             <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-              No Coração do Centro Histórico <span className="font-normal text-[#00A8B5]">& Hub Universitário</span>
+              {isEn ? 'Heart of Historic Center' : 'No Coração do Centro Histórico'}{' '}
+              <span className="font-normal text-[#00A8B5]">
+                {isEn ? '& University Hub' : '& Hub Universitário'}
+              </span>
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm font-normal leading-relaxed">
-              Situado estrategicamente no centro de Aveiro, o imóvel beneficia de uma procura constante durante todo o ano, sem dependência de sazonalidade.
+              {isEn
+                ? 'Strategically located in downtown Aveiro, benefiting from continuous year-round demand with zero seasonality risk.'
+                : 'Situado estrategicamente no centro de Aveiro, o imóvel beneficia de uma procura constante durante todo o ano, sem dependência de sazonalidade.'}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
               <div className="p-4 bg-[#071629] rounded-2xl border border-slate-700/60">
-                <span className="font-extrabold text-[#00A8B5] text-base">800 Metros</span>
-                <p className="text-slate-300 font-normal mt-0.5">Universidade de Aveiro (Campus UA)</p>
+                <span className="font-extrabold text-[#00A8B5] text-base">{isEn ? '800 Meters' : '800 Metros'}</span>
+                <p className="text-slate-300 font-normal mt-0.5">{isEn ? 'University of Aveiro (UA Campus)' : 'Universidade de Aveiro (Campus UA)'}</p>
               </div>
               <div className="p-4 bg-[#071629] rounded-2xl border border-slate-700/60">
-                <span className="font-extrabold text-[#00A8B5] text-base">300 Metros</span>
-                <p className="text-slate-300 font-normal mt-0.5">Canal Central dos Moliceiros & Beira-Mar</p>
+                <span className="font-extrabold text-[#00A8B5] text-base">{isEn ? '300 Meters' : '300 Metros'}</span>
+                <p className="text-slate-300 font-normal mt-0.5">{isEn ? 'Central Canal & Beira-Mar District' : 'Canal Central dos Moliceiros & Beira-Mar'}</p>
               </div>
               <div className="p-4 bg-[#071629] rounded-2xl border border-slate-700/60">
                 <span className="font-extrabold text-[#00A8B5] text-base">1.2 km</span>
-                <p className="text-slate-300 font-normal mt-0.5">Estação de Comboios CP de Aveiro</p>
+                <p className="text-slate-300 font-normal mt-0.5">{isEn ? 'Aveiro Central Train Station' : 'Estação de Comboios CP de Aveiro'}</p>
               </div>
               <div className="p-4 bg-[#071629] rounded-2xl border border-slate-700/60">
-                <span className="font-extrabold text-[#00A8B5] text-base">10 Minutos</span>
-                <p className="text-slate-300 font-normal mt-0.5">Praia da Barra & Costa Nova</p>
+                <span className="font-extrabold text-[#00A8B5] text-base">{isEn ? '10 Minutes' : '10 Minutos'}</span>
+                <p className="text-slate-300 font-normal mt-0.5">{isEn ? 'Barra & Costa Nova Beaches' : 'Praia da Barra & Costa Nova'}</p>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 bg-[#071629] p-5 sm:p-6 rounded-2xl border border-slate-700/60 space-y-4 text-xs">
-            <h4 className="font-extrabold text-base text-white">Razões de Atratividade:</h4>
+            <h4 className="font-extrabold text-base text-white">{isEn ? 'Key Location Advantages:' : 'Razões de Atratividade:'}</h4>
             <ul className="space-y-3 text-slate-300 font-normal">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#00A8B5] shrink-0 mt-0.5" />
-                <span>Escassez crónica de quartos de qualidade com casa de banho privativa perto do campus da UA.</span>
+                <span>
+                  {isEn
+                    ? 'Chronic shortage of premium ensuite student rooms near the University of Aveiro campus.'
+                    : 'Escassez crónica de quartos de qualidade com casa de banho privativa perto do campus da UA.'}
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#00A8B5] shrink-0 mt-0.5" />
-                <span>Excelente ecossistema de restauração, comércio tradicional e mobilidade pedonal.</span>
+                <span>
+                  {isEn
+                    ? 'Vibrant dining ecosystem, traditional commerce, and high pedestrian mobility.'
+                    : 'Excelente ecossistema de restauração, comércio tradicional e mobilidade pedonal.'}
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#00A8B5] shrink-0 mt-0.5" />
-                <span>Procura crescente de quadros altamente qualificados de empresas tecnológicas em Aveiro.</span>
+                <span>
+                  {isEn
+                    ? 'Surging demand from tech companies and research centers in Aveiro.'
+                    : 'Procura crescente de quadros altamente qualificados de empresas tecnológicas em Aveiro.'}
+                </span>
               </li>
             </ul>
 
@@ -170,7 +221,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
               onClick={onOpenNda}
               className="w-full mt-4 py-3.5 bg-[#00A8B5] hover:bg-[#008893] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md min-h-[44px]"
             >
-              Agendar Visita ao Imóvel
+              {isEn ? 'Schedule Property Tour' : 'Agendar Visita ao Imóvel'}
             </button>
           </div>
         </div>
@@ -201,7 +252,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ onOpenNda }) => {
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5] px-3 py-1 bg-[#071629] rounded-lg border border-[#00A8B5]/30">
                   {selectedGalleryPhoto.category}
                 </span>
-                <span className="text-xs text-slate-400">Fotografia Oficial Besmart</span>
+                <span className="text-xs text-slate-400">{isEn ? 'Official Photo Besmart' : 'Fotografia Oficial Besmart'}</span>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white">{selectedGalleryPhoto.title}</h3>
               <p className="text-xs text-slate-300 font-normal">{selectedGalleryPhoto.description}</p>

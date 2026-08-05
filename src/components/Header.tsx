@@ -76,7 +76,11 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E6F7F8] text-[#008893] text-[10px] sm:text-[11px] uppercase tracking-wider font-extrabold border border-[#00A8B5]/20">
                 <span className="w-2 h-2 rounded-full bg-[#00A8B5] animate-pulse" />
-                <span>Oportunidade de investimento ou M&A • Aveiro, Portugal</span>
+                <span>
+                  {language === 'EN'
+                    ? 'Investment or M&A Opportunity • Aveiro, Portugal'
+                    : 'Oportunidade de investimento ou M&A • Aveiro, Portugal'}
+                </span>
               </div>
             </div>
 
@@ -102,9 +106,11 @@ export const Header: React.FC<HeaderProps> = ({
                 <div className="absolute bottom-3 left-3 right-3 sm:left-4 sm:right-4 flex flex-wrap items-center justify-between text-white gap-2">
                   <div className="flex items-center gap-2">
                     <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#00A8B5] px-2 sm:px-2.5 py-1 bg-[#0C2340]/90 rounded-md border border-[#00A8B5]/30">
-                      Viver Aveiro
+                      {language === 'EN' ? 'Experience Aveiro' : 'Viver Aveiro'}
                     </span>
-                    <span className="text-xs font-semibold text-slate-100">Canais & Centro Histórico</span>
+                    <span className="text-xs font-semibold text-slate-100">
+                      {language === 'EN' ? 'Canals & Historic Center' : 'Canais & Centro Histórico'}
+                    </span>
                   </div>
                   <a
                     href="https://besmart.pt/viver-aveiro/"
@@ -126,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#0C2340] hover:bg-[#061528] text-white font-bold py-3.5 px-7 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer shadow-lg shadow-[#0C2340]/20 min-h-[44px]"
             >
               <Calculator className="w-4 h-4 text-[#FF8C42]" />
-              <span>Simular Retorno</span>
+              <span>{language === 'EN' ? 'Simulate Return' : 'Simular Retorno'}</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </div>
@@ -146,19 +152,23 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 flex items-center justify-between">
               <div>
                 <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#00A8B5] px-2 sm:px-2.5 py-0.5 bg-[#0C2340]/90 rounded border border-[#00A8B5]/30">
-                  Fotografia Real
+                  {language === 'EN' ? 'Actual Photo' : 'Fotografia Real'}
                 </span>
-                <p className="text-xs font-bold text-white mt-1">Fachada Besmart Residence</p>
+                <p className="text-xs font-bold text-white mt-1">
+                  {language === 'EN' ? 'Besmart Residence Facade' : 'Fachada Besmart Residence'}
+                </p>
               </div>
               <span className="text-[9px] sm:text-[10px] font-bold text-slate-300 bg-slate-900/80 px-2 py-0.5 rounded">
-                Centro Histórico
+                {language === 'EN' ? 'Historic Center' : 'Centro Histórico'}
               </span>
             </div>
           </div>
 
           <div className="p-5 sm:p-8 space-y-6">
             <div className="border-b border-slate-700/80 pb-4">
-              <h3 className="text-xs font-bold tracking-widest uppercase text-[#00A8B5]">Resumo Transacional</h3>
+              <h3 className="text-xs font-bold tracking-widest uppercase text-[#00A8B5]">
+                {language === 'EN' ? 'Transactional Summary' : 'Resumo Transacional'}
+              </h3>
               <span className="text-[11px] text-slate-300 uppercase tracking-wider font-medium">Share Deal 2026</span>
             </div>
 
@@ -171,31 +181,31 @@ export const Header: React.FC<HeaderProps> = ({
                   {formatCurrency(1200000, currency)}
                 </div>
                 <div className="text-[11px] text-[#00A8B5] italic mt-0.5 font-medium">
-                  Ativo Imobiliário + Operação Total
+                  {language === 'EN' ? 'Real Estate Asset + Total Business' : 'Ativo Imobiliário + Operação Total'}
                 </div>
               </div>
 
               <div className="border-t border-slate-700/80 pt-4">
                 <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
-                  Net Yield Operacional Estimada
+                  {language === 'EN' ? 'Estimated Operational Net Yield' : 'Net Yield Operacional Estimada'}
                 </div>
                 <div className="text-2xl sm:text-3xl font-black text-[#FF8C42]">
-                  ~9,1%
+                  ~9.1%
                 </div>
                 <div className="text-[11px] text-slate-300 italic mt-0.5">
-                  Modelo híbrido PBSA + AL Verão
+                  {language === 'EN' ? 'Hybrid PBSA + Summer Rental Model' : 'Modelo híbrido PBSA + AL Verão'}
                 </div>
               </div>
 
               <div className="border-t border-slate-700/80 pt-4">
                 <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
-                  Net Yield Conservador
+                  {language === 'EN' ? 'Conservative Net Yield' : 'Net Yield Conservador'}
                 </div>
                 <div className="text-xl sm:text-2xl font-black text-emerald-400">
-                  ~6,08%
+                  ~6.08%
                 </div>
                 <div className="text-[11px] text-slate-300 italic mt-0.5">
-                  Cenário passivo conservador (102k €/ano)
+                  {language === 'EN' ? 'Conservative passive scenario (€102k/yr)' : 'Cenário passivo conservador (102k €/ano)'}
                 </div>
               </div>
 
@@ -207,13 +217,15 @@ export const Header: React.FC<HeaderProps> = ({
                   {formatCurrency(886000, currency)}
                 </div>
                 <div className="text-[11px] text-slate-300 italic mt-0.5">
-                  Assunção de Financiamento Novo Banco (~314k€)
+                  {language === 'EN' ? 'Assumption of Novo Banco Debt (~€314k)' : 'Assunção de Financiamento Novo Banco (~314k€)'}
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-700/80 text-[11px] text-slate-300 italic leading-snug">
-              Isenção de IMT/Selo imediata via cedência de quotas societárias (~75.000€ de poupança fiscal direta).
+              {language === 'EN'
+                ? 'Immediate Transfer Tax exemption via share deal (~€75,000 direct tax savings).'
+                : 'Isenção de IMT/Selo imediata via cedência de quotas societárias (~75.000€ de poupança fiscal direta).'}
             </div>
           </div>
         </div>
