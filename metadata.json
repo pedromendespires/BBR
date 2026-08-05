@@ -1,0 +1,6 @@
+{
+  "name": "Besmart Boutique Residence - Dossiê de Investimento",
+  "description": "Dossiê de investimento e portal financeiro interativo para a Besmart Boutique Residence em Aveiro. Inclui simulação de rendimento, análise de fluxo de caixa, DRE histórico e sala de dados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Besmart Official Color Palette (besmart.pt) */
+  --color-besmart-navy: #0C2340;       /* Deep Navy Blue */
+  --color-besmart-navy-dark: #061528;  /* Dark Footer Navy */
+  --color-besmart-teal: #00A8B5;       /* Signature Besmart Teal/Cyan */
+  --color-besmart-teal-hover: #008893; /* Hover Teal */
+  --color-besmart-teal-light: #E6F7F8; /* Light Teal Tint */
+  --color-besmart-coral: #FF8C42;      /* Besmart Coral Accent */
+  --color-besmart-coral-hover: #E0732A;/* Hover Coral */
+  --color-besmart-bg: #F8FAFC;         /* Clean background */
+  --color-besmart-card: #FFFFFF;       /* Pure white card */
+  --color-besmart-border: #E2E8F0;     /* Border gray */
+  --color-besmart-dark: #0F172A;       /* Primary text */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-besmart-bg);
+  color: var(--color-besmart-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00A8B5;
+}
