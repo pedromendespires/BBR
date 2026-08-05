@@ -29,12 +29,14 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
             {isEn ? 'Share Deal Tax Savings' : 'Poupança Fiscal Share Deal'}
           </p>
           <p className="text-2xl sm:text-3xl font-black text-[#0C2340] mt-1">
-            {formatCurrency(75000, currency)}
+            {currency === 'EUR'
+              ? isEn ? '€75,000 to €90,000' : '75 000 € a 90 000 €'
+              : isEn ? `${formatCurrency(75000, currency)} to ${formatCurrency(90000, currency)}` : `${formatCurrency(75000, currency)} a ${formatCurrency(90000, currency)}`}
           </p>
           <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
             {isEn
-              ? 'Direct acquisition of 100% corporate shares with total exemption from property transfer tax and stamp duty on property acquisition.'
-              : 'Aquisição direta de 100% das quotas societárias com isenção total de IMT e Imposto do Selo na aquisição do imóvel.'}
+              ? 'The sale involves the acquisition of corporate shares, guaranteeing full exemption from Property Transfer Tax (IMT) and Stamp Duty, generating immediate transactional savings in the range of €75,000 to €90,000.'
+              : 'A venda incide sobre as quotas da sociedade, garantindo isenção total de IMT e Imposto do Selo, o que gera uma poupança transacional imediata na ordem dos 75 000 € a 90 000€.'}
           </p>
         </div>
 

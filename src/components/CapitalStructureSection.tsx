@@ -179,8 +179,8 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {isEn
-                    ? `Direct acquisition of corporate shares ("Vetores & Hipotenusas, Lda.") provides immediate tax savings of ${formatCurrency(75000, currency)} (Transfer Tax & Stamp Duty), enhancing effective net yield.`
-                    : `A aquisição direta das quotas da sociedade "Vetores & Hipotenusas, Lda." permite uma poupança imediata de ${formatCurrency(75000, currency)} em impostos (IMT e Imposto do Selo), alavancando a rentabilidade líquida efetiva.`}
+                    ? 'The sale involves the acquisition of corporate shares, guaranteeing full exemption from Property Transfer Tax (IMT) and Stamp Duty, generating immediate transactional savings in the range of €75,000 to €90,000.'
+                    : 'A venda incide sobre as quotas da sociedade, garantindo isenção total de IMT e Imposto do Selo, o que gera uma poupança transacional imediata na ordem dos 75 000 € a 90 000€.'}
                 </p>
               </div>
             </div>
