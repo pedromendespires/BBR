@@ -49,16 +49,6 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
     setAnnualOpex(55000);
   };
 
-  const setZeroDebtCase = () => {
-    setEnterpriseValue(1200000);
-    setEquityPercent(100);
-    setInterestRate(0);
-    setLoanTermYears(1);
-    setAcademicMonthlyRev(8400);
-    setSummerTotalRev(32000);
-    setAnnualOpex(58000);
-  };
-
   // Derived Financial Calculations
   const calculated = useMemo(() => {
     const requiredEquity = Math.round((enterpriseValue * equityPercent) / 100);
@@ -160,12 +150,6 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
               className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-700 transition-all cursor-pointer"
             >
               Otimista
-            </button>
-            <button
-              onClick={setZeroDebtCase}
-              className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-700 transition-all cursor-pointer"
-            >
-              100% Equity
             </button>
           </div>
         </div>

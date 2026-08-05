@@ -241,7 +241,7 @@ export const PROPERTY_GALLERY = [
   {
     id: 'suite-1',
     title: 'Suíte / Quarto Elegante',
-    category: 'Suítes & Estúdios',
+    category: 'Suites',
     url: 'https://besmart.pt/wp-content/uploads/2026/02/besmart_quarto_10_b-1280x853.webp',
     description: 'Design contemporâneo com zona de trabalho e climatização individualizada A+.',
   },
@@ -276,14 +276,14 @@ export const PROPERTY_GALLERY = [
   {
     id: 'suite-2',
     title: 'Estúdio de Estudo Avançado',
-    category: 'Suítes & Estúdios',
+    category: 'Suites',
     url: 'https://besmart.pt/wp-content/uploads/2026/02/besmart_quarto_2_a-1280x853.webp',
     description: 'Espaço funcional adaptado a estadias académicas de média e longa duração.',
   },
   {
     id: 'suite-3',
     title: 'Suíte com Luz Natural',
-    category: 'Suítes & Estúdios',
+    category: 'Suites',
     url: 'https://besmart.pt/wp-content/uploads/2026/02/besmart_quarto_3_a-1280x853.webp',
     description: 'Mobiliário ergonómico de elevada durabilidade.',
   },
