@@ -247,8 +247,8 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {isEn
-                    ? 'Targeted at international students and researchers at the University of Aveiro. Consistent gross revenue of €7,000 to €9,000/month, covering all annual OPEX.'
-                    : 'Focado em estudantes internacionais e investigadores da Universidade de Aveiro. Faturação estável de 7.000 € a 9.000 € / mês, cobrindo a totalidade do OPEX.'}
+                    ? 'Targeted at international students and researchers at the University of Aveiro. Consistent gross revenue of €6,000 to €9,000/month, covering all annual OPEX.'
+                    : 'Focado em estudantes internacionais e investigadores da Universidade de Aveiro. Faturação estável de 6.000 € a 9.000 € / mês, cobrindo a totalidade do OPEX.'}
                 </p>
               </div>
 
