@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Currency, Language } from '../types';
 import { formatCurrency, formatPercent } from '../utils/formatters';
-import { Calculator, RotateCcw, Sliders, CheckCircle2 } from 'lucide-react';
+import { Calculator, Sliders, CheckCircle2 } from 'lucide-react';
 
 interface InvestmentSimulatorProps {
   currency: Currency;
@@ -15,22 +15,11 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
   // Input parameters state
   const [enterpriseValue, setEnterpriseValue] = useState<number>(1200000);
   const [equityPercent, setEquityPercent] = useState<number>(73.8); // ~886k€ out of 1.2M€
-  const [interestRate, setInterestRate] = useState<number>(4.2); // Euribor + Spread
+  const [interestRate, setInterestRate] = useState<number>(1.0); // 1.0% base loan interest
   const [loanTermYears, setLoanTermYears] = useState<number>(12); // Until 2037
-  const [academicMonthlyRev, setAcademicMonthlyRev] = useState<number>(8400); // 8.4k€ / mo
-  const [summerTotalRev, setSummerTotalRev] = useState<number>(32000); // 32k€ summer total
+  const [academicMonthlyRev, setAcademicMonthlyRev] = useState<number>(9000); // 9k€ / mo
+  const [summerTotalRev, setSummerTotalRev] = useState<number>(37000); // 37k€ summer total
   const [annualOpex, setAnnualOpex] = useState<number>(58000); // OPEX
-
-  // Reset Handler
-  const setBaseCase = () => {
-    setEnterpriseValue(1200000);
-    setEquityPercent(73.8);
-    setInterestRate(4.2);
-    setLoanTermYears(12);
-    setAcademicMonthlyRev(8400);
-    setSummerTotalRev(32000);
-    setAnnualOpex(58000);
-  };
 
   // Derived Financial Calculations
   const calculated = useMemo(() => {
@@ -38,7 +27,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
     const bankLoanAmount = Math.max(0, enterpriseValue - requiredEquity);
 
     // Gross Revenue
-    const academicSeasonTotal = academicMonthlyRev * 10;
+    const academicSeasonTotal = academicMonthlyRev * 10.5;
     const totalGrossRevenue = academicSeasonTotal + summerTotalRev;
 
     // EBITDA
@@ -103,7 +92,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
     <section id={id} className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200 scroll-mt-20">
       <div className="bg-[#0C2340] text-white p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-2xl">
         {/* Header Title */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-white/10">
+        <div className="pb-6 sm:pb-8 border-b border-white/10">
           <div>
             <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">
               {isEn ? '02. Financial Model' : '02. Modelo Financeiro'}
@@ -120,8 +109,6 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                 : 'Ajuste as variáveis de aquisição, financiamento e ocupação para calcular o fluxo e ROE.'}
             </p>
           </div>
-
-
         </div>
 
         {/* Grid: Inputs vs Real-Time Results */}
@@ -198,7 +185,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                 </div>
                 <input
                   type="range"
-                  min={1}
+                  min={0.5}
                   max={7.5}
                   step={0.1}
                   value={interestRate}
@@ -430,14 +417,6 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                 </p>
               </div>
             </div>
-
-            <button
-              onClick={setBaseCase}
-              className="w-full flex items-center justify-center gap-2 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-xl border border-slate-700 transition-all cursor-pointer min-h-[44px]"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Reset to Investment Simulation Parameters' : 'Restaurar Parâmetros da Simulação de Investimento'}</span>
-            </button>
           </div>
         </div>
       </div>
