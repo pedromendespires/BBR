@@ -187,18 +187,6 @@ export const Header: React.FC<HeaderProps> = ({
 
               <div className="border-t border-slate-700/80 pt-4">
                 <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
-                  {language === 'EN' ? 'Estimated Operational Net Yield' : 'Net Yield Operacional Estimada'}
-                </div>
-                <div className="text-2xl sm:text-3xl font-black text-[#FF8C42]">
-                  ~9.1%
-                </div>
-                <div className="text-[11px] text-slate-300 italic mt-0.5">
-                  {language === 'EN' ? 'Hybrid PBSA + Summer Rental Model' : 'Modelo híbrido PBSA + AL Verão'}
-                </div>
-              </div>
-
-              <div className="border-t border-slate-700/80 pt-4">
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
                   {language === 'EN' ? 'Conservative Net Yield' : 'Net Yield Conservador'}
                 </div>
                 <div className="text-xl sm:text-2xl font-black text-emerald-400">
@@ -217,16 +205,12 @@ export const Header: React.FC<HeaderProps> = ({
                   {formatCurrency(886000, currency)}
                 </div>
                 <div className="text-[11px] text-slate-300 italic mt-0.5">
-                  {language === 'EN' ? 'Assumption of Novo Banco Debt (~€314k)' : 'Assunção de Financiamento Novo Banco (~314k€)'}
+                  {language === 'EN' ? 'Assumption of bank financing with Novo Banco' : 'Assunção de Financiamento bancário junto do Novo Banco'}
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-700/80 text-[11px] text-slate-300 italic leading-snug">
-              {language === 'EN'
-                ? 'Immediate Transfer Tax exemption via share deal (~€75,000 direct tax savings).'
-                : 'Isenção de IMT/Selo imediata via cedência de quotas societárias (~75.000€ de poupança fiscal direta).'}
-            </div>
+
           </div>
         </div>
 

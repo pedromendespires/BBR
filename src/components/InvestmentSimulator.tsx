@@ -21,7 +21,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
   const [summerTotalRev, setSummerTotalRev] = useState<number>(32000); // 32k€ summer total
   const [annualOpex, setAnnualOpex] = useState<number>(58000); // OPEX
 
-  // Preset Handlers
+  // Reset Handler
   const setBaseCase = () => {
     setEnterpriseValue(1200000);
     setEquityPercent(73.8);
@@ -30,26 +30,6 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
     setAcademicMonthlyRev(8400);
     setSummerTotalRev(32000);
     setAnnualOpex(58000);
-  };
-
-  const setConservativeCase = () => {
-    setEnterpriseValue(1200000);
-    setEquityPercent(73.8);
-    setInterestRate(5.5);
-    setLoanTermYears(12);
-    setAcademicMonthlyRev(7200);
-    setSummerTotalRev(25000);
-    setAnnualOpex(62000);
-  };
-
-  const setOptimisticCase = () => {
-    setEnterpriseValue(1200000);
-    setEquityPercent(73.8);
-    setInterestRate(3.5);
-    setLoanTermYears(12);
-    setAcademicMonthlyRev(9200);
-    setSummerTotalRev(38000);
-    setAnnualOpex(55000);
   };
 
   // Derived Financial Calculations
@@ -141,27 +121,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
             </p>
           </div>
 
-          {/* Preset Buttons */}
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              onClick={setBaseCase}
-              className="px-3.5 py-2 bg-[#00A8B5] hover:bg-[#008893] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer shadow-md min-h-[38px]"
-            >
-              {isEn ? 'Base Case' : 'Cenário Base'}
-            </button>
-            <button
-              onClick={setConservativeCase}
-              className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-700 transition-all cursor-pointer min-h-[38px]"
-            >
-              {isEn ? 'Conservative' : 'Conservador'}
-            </button>
-            <button
-              onClick={setOptimisticCase}
-              className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-700 transition-all cursor-pointer min-h-[38px]"
-            >
-              {isEn ? 'Optimistic' : 'Otimista'}
-            </button>
-          </div>
+
         </div>
 
         {/* Grid: Inputs vs Real-Time Results */}
@@ -177,7 +137,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
             <div className="bg-[#071629] p-4 sm:p-5 rounded-2xl border border-slate-700/60">
               <div className="flex flex-wrap justify-between items-center mb-2 gap-1">
                 <label className="text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wide">
-                  {isEn ? 'Enterprise Value (Deal Price)' : 'Enterprise Value (Preço da Operação)'}
+                  {isEn ? 'Deal Price (Enterprise Value)' : 'Preço da Operação (Enterprise Value)'}
                 </label>
                 <span className="text-sm sm:text-base font-extrabold text-white">
                   {formatCurrency(enterpriseValue, currency)}
@@ -186,7 +146,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
               <input
                 type="range"
                 min={1000000}
-                max={1500000}
+                max={1200000}
                 step={10000}
                 value={enterpriseValue}
                 onChange={(e) => setEnterpriseValue(Number(e.target.value))}
@@ -194,8 +154,8 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
               />
               <div className="flex justify-between text-[9px] sm:text-[10px] text-slate-400 mt-1 uppercase tracking-wider font-semibold">
                 <span>1,000,000 €</span>
+                <span>1,100,000 €</span>
                 <span>1,200,000 € ({isEn ? 'Baseline' : 'Dossiê'})</span>
-                <span>1,500,000 €</span>
               </div>
             </div>
 
@@ -263,7 +223,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                 <input
                   type="range"
                   min={5}
-                  max={20}
+                  max={12}
                   step={1}
                   value={loanTermYears}
                   disabled={equityPercent === 100}
@@ -271,7 +231,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#00A8B5] disabled:opacity-30"
                 />
                 <p className="text-[10px] text-slate-400 mt-1 italic">
-                  {isEn ? 'Existing financing until June 2037' : 'Financiamento existente até 2037'}
+                  {isEn ? 'Existing financing until June 2037' : 'Financiamento existente até Junho de 2037'}
                 </p>
               </div>
             </div>
@@ -289,9 +249,9 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                 </div>
                 <input
                   type="range"
-                  min={6000}
-                  max={12000}
-                  step={200}
+                  min={4000}
+                  max={10960}
+                  step={20}
                   value={academicMonthlyRev}
                   onChange={(e) => setAcademicMonthlyRev(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
@@ -322,7 +282,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
                 />
                 <p className="text-[10px] text-slate-400 mt-1 italic">
-                  {isEn ? 'Peak summer season (2 months)' : 'Época alta turística (2 meses)'}
+                  {isEn ? 'Peak summer season (45 days between July and August)' : 'Época alta turística (45 dias entre julho e agosto)'}
                 </p>
               </div>
             </div>
@@ -476,7 +436,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
               className="w-full flex items-center justify-center gap-2 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-xl border border-slate-700 transition-all cursor-pointer min-h-[44px]"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Reset to Baseline Parameters' : 'Restaurar Parâmetros do Dossiê'}</span>
+              <span>{isEn ? 'Reset to Investment Simulation Parameters' : 'Restaurar Parâmetros da Simulação de Investimento'}</span>
             </button>
           </div>
         </div>

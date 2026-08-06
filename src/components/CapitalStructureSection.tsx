@@ -15,7 +15,7 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
 
   const capitalData = [
     { name: isEn ? 'Equity' : 'Capital Próprio (Equity)', value: 886000, color: '#0C2340' },
-    { name: isEn ? 'Bank Debt (Novo Banco)' : 'Dívida Bancária Assumida (Novo Banco)', value: 314002, color: '#00A8B5' },
+    { name: isEn ? 'Assumed Bank Debt' : 'Dívida Bancária Assumida', value: 314002, color: '#00A8B5' },
   ];
 
   return (
@@ -32,8 +32,8 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
         </h2>
         <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
           {isEn
-            ? 'Acquisition via Share Deal optimizes capital efficiency, minimizing upfront equity requirements and providing 100% Transfer Tax exemption.'
-            : 'A aquisição por Share Deal otimiza a eficiência do capital investido, minimizando o desembolso inicial e garantindo isenção total de IMT.'}
+            ? 'Acquisition via Share Deal optimizes capital efficiency, minimizing upfront equity requirements and providing 100% Transfer Tax and Stamp Duty exemption.'
+            : 'A aquisição por Share Deal otimiza a eficiência do capital investido, minimizando o desembolso inicial e garantindo isenção total de IMT e Imposto do Selo.'}
         </p>
       </div>
 
@@ -141,8 +141,8 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
 
           <div className="mt-6 p-4 bg-[#E6F7F8] rounded-xl border border-[#00A8B5]/20 text-xs text-slate-700 leading-relaxed font-normal">
             {isEn
-              ? 'The investor commits only €886,000 of equity, assuming bank financing with highly favorable contracted terms until 2037 with Novo Banco.'
-              : 'O investidor aporta apenas 886.000 € de capital próprio, assumindo o financiamento bancário com excelentes condições contratadas até 2037 junto do Novo Banco.'}
+              ? 'The investor commits only €886,000 of equity, assuming bank financing with highly favorable contracted terms until June 2037 with Novo Banco.'
+              : 'O investidor aporta apenas 886.000 € de capital próprio, assumindo o financiamento bancário com excelentes condições contratadas até Junho de 2037 junto do Novo Banco.'}
           </div>
         </div>
 

@@ -837,14 +837,14 @@ export const DATA_ROOM_DOCS = DATA_ROOM_DOCS_PT;
 
 export const RISK_RETURN_BENCHMARKS_PT = [
   { name: 'PBSA Europeu Tradicional', risk: 5, yield: 4.2, size: 12, fill: '#94a3b8' },
-  { name: 'Besmart Boutique Aveiro', risk: 8, yield: 9.1, size: 28, fill: '#2563eb' },
+  { name: 'Besmart Boutique Aveiro', risk: 8, yield: 6.08, size: 28, fill: '#2563eb' },
   { name: 'Habitação Tradicional Aveiro', risk: 14, yield: 5.2, size: 14, fill: '#cbd5e1' },
   { name: 'Fundo Imobiliário Comercial', risk: 11, yield: 5.8, size: 14, fill: '#f59e0b' },
 ];
 
 export const RISK_RETURN_BENCHMARKS_EN = [
   { name: 'European Traditional PBSA', risk: 5, yield: 4.2, size: 12, fill: '#94a3b8' },
-  { name: 'Besmart Boutique Aveiro', risk: 8, yield: 9.1, size: 28, fill: '#2563eb' },
+  { name: 'Besmart Boutique Aveiro', risk: 8, yield: 6.08, size: 28, fill: '#2563eb' },
   { name: 'Aveiro Residential Rental', risk: 14, yield: 5.2, size: 14, fill: '#cbd5e1' },
   { name: 'Commercial Real Estate Fund', risk: 11, yield: 5.8, size: 14, fill: '#f59e0b' },
 ];

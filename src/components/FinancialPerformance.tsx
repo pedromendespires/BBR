@@ -128,8 +128,8 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF8C42]" />
                   {isEn ? 'Risk vs. Return Profile' : 'Perfil Risco vs. Retorno'}
                 </h3>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 bg-[#FF8C42] text-white rounded-lg">
-                  Yield ~9.1%
+                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 bg-[#00A8B5] text-white rounded-lg">
+                  Yield ~6.08%
                 </span>
               </div>
               <p className="text-xs text-slate-500 mb-6 font-normal">
@@ -187,8 +187,8 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
             <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed font-normal">
               <strong className="font-bold text-[#0C2340]">{isEn ? 'Prime Positioning:' : 'Posicionamento Privilegiado:'}</strong>{' '}
               {isEn
-                ? 'The Besmart project delivers a significant yield premium (~9.1%) over standard residential leases (5.2%) and commercial funds (5.8%), supported by structural student housing scarcity in central Aveiro.'
-                : 'O projeto Besmart oferece um prémio de rentabilidade significativo (~9,1%) relativamente à habitação tradicional (5,2%) e fundos comerciais (5,8%), suportado pela escassez de alojamento académico no centro de Aveiro.'}
+                ? 'The Besmart project delivers an attractive conservative net yield (~6.08%) outperforming traditional residential leases (5.2%) and commercial funds (5.8%), supported by structural student housing scarcity in central Aveiro.'
+                : 'O projeto Besmart oferece um rendimento líquido conservador de ~6,08% superior à habitação tradicional (5,2%) e fundos comerciais (5,8%), suportado pela escassez estrutural de alojamento académico no centro de Aveiro.'}
             </div>
           </div>
         </div>
@@ -215,7 +215,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={revenueSeasonData} layout="vertical" margin={{ left: 0, right: 10 }}>
                   <XAxis type="number" stroke="#64748b" fontSize={11} tickFormatter={(v) => `${v / 1000}k€`} />
-                  <YAxis dataKey="label" type="category" stroke="#475569" fontSize={10} width={150} />
+                  <YAxis dataKey="label" type="category" stroke="#475569" fontSize={10} width={115} />
                   <Tooltip
                     formatter={(val: any) => [formatCurrency(Number(val), currency), isEn ? 'Total Revenue' : 'Faturação Total']}
                     contentStyle={{ backgroundColor: '#0C2340', color: '#fff', fontSize: '11px', borderRadius: '8px' }}

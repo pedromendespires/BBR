@@ -22,7 +22,7 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
               <PiggyBank className="w-5 h-5" />
             </div>
             <span className="text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
-              {isEn ? 'Transfer Tax Exemption' : 'Isenção IMT'}
+              {isEn ? 'Transfer Tax & Stamp Duty Exemption' : 'Isenção IMT + Imposto de Selo'}
             </span>
           </div>
           <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
