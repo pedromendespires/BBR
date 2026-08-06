@@ -17,7 +17,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
   const filteredGallery = gallery;
 
   return (
-    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
+    <section className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 py-12 sm:py-16 border-t border-slate-200">
       {/* Section Header */}
       <div className="max-w-3xl mb-8 sm:mb-12">
         <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">
@@ -31,8 +31,8 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
         </h2>
         <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
           {isEn
-            ? 'Fully rehabilitated building in Aveiro historic city center. Explore real photos of facilities and detailed specifications for all 10 suites and studios.'
-            : 'Edifício reabilitado no centro histórico de Aveiro. Explore as fotografias reais das instalações e as especificações das 10 suítes e estúdios.'}
+            ? 'Fully rehabilitated building in Aveiro historic city center. Explore real photos of facilities and detailed specifications for all 10 suites.'
+            : 'Edifício reabilitado no centro histórico de Aveiro. Explore as fotografias reais das instalações e as especificações das 10 suites.'}
         </p>
       </div>
 
@@ -113,7 +113,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
             <p className="text-xs text-slate-400 mt-1">
               {isEn
                 ? 'Real photos of exterior façade, common spaces, suites, and private inner patio in Aveiro.'
-                : 'Imagens reais da fachada, áreas comuns, suítes e pátio interior em Aveiro.'}
+                : 'Imagens reais da fachada, áreas comuns, suites e pátio interior em Aveiro.'}
             </p>
           </div>
         </div>

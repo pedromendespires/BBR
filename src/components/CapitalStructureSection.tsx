@@ -19,7 +19,7 @@ export const CapitalStructureSection: React.FC<CapitalStructureSectionProps> = (
   ];
 
   return (
-    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
+    <section className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 py-12 sm:py-16 border-t border-slate-200">
       <div className="max-w-3xl mb-8 sm:mb-12">
         <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#00A8B5] mb-2">
           {isEn ? '01. Structure Analysis' : '01. Análise da Estrutura'}

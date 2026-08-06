@@ -13,7 +13,7 @@ export const KeyMetricsGrid: React.FC<KeyMetricsGridProps> = ({ currency, langua
   const isEn = language === 'EN';
 
   return (
-    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 my-8 sm:my-12 relative z-20">
+    <section className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 my-8 sm:my-12 relative z-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 2xl:gap-8">
         {/* Metric 1: Share Deal Fiscal Benefit */}
         <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-[#00A8B5] hover:shadow-md transition-all group">

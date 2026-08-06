@@ -89,7 +89,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
   ]);
 
   return (
-    <section id={id} className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200 scroll-mt-20">
+    <section id={id} className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 py-12 sm:py-16 border-t border-slate-200 scroll-mt-20">
       <div className="bg-[#0C2340] text-white p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-2xl">
         {/* Header Title */}
         <div className="pb-6 sm:pb-8 border-b border-white/10">

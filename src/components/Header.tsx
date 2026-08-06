@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="bg-white text-slate-900 border-b border-slate-200">
       {/* Besmart Official Top Bar */}
-      <nav className="bg-[#0C2340] text-white flex flex-wrap items-center justify-between px-4 sm:px-6 lg:px-12 2xl:px-16 py-3 text-xs uppercase tracking-wider font-bold gap-2">
+      <nav className="bg-[#0C2340] text-white flex flex-wrap items-center justify-between px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 py-3 text-xs uppercase tracking-wider font-bold gap-2">
         <div className="flex items-center gap-3">
           <span className="text-slate-200 text-xs font-bold tracking-wider">Boutique Residence Aveiro</span>
         </div>
@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
       </nav>
 
       {/* Main Besmart Hero Grid */}
-      <div className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-8 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+      <div className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 py-8 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
         {/* Left Column: Title & Description */}
         <div className="lg:col-span-8 flex flex-col justify-between space-y-6 sm:space-y-8 border-b lg:border-b-0 lg:border-r border-slate-200 pb-8 lg:pb-0 lg:pr-12">

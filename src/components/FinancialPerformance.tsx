@@ -24,13 +24,13 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
 
   const revenueSeasonData = [
     {
-      label: isEn ? 'Academic (10 M) - Min' : 'Época Letiva (10 M) - Mínimo',
-      value: 70000,
+      label: isEn ? 'Academic (10.5 M) - Min' : 'Época Letiva (10,5 M) - Mínimo',
+      value: 63000,
       fill: '#0C2340',
     },
     {
-      label: isEn ? 'Academic (10 M) - Max' : 'Época Letiva (10 M) - Máximo',
-      value: 90000,
+      label: isEn ? 'Academic (10.5 M) - Max' : 'Época Letiva (10,5 M) - Máximo',
+      value: 94500,
       fill: '#183B6B',
     },
     {
@@ -46,7 +46,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
   ];
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 2xl:px-16 border-t border-slate-200 max-w-7xl 2xl:max-w-[1536px] mx-auto">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 border-t border-slate-200 max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto">
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl">
@@ -215,7 +215,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={revenueSeasonData} layout="vertical" margin={{ left: 0, right: 10 }}>
                   <XAxis type="number" stroke="#64748b" fontSize={11} tickFormatter={(v) => `${v / 1000}k€`} />
-                  <YAxis dataKey="label" type="category" stroke="#475569" fontSize={10} width={115} />
+                  <YAxis dataKey="label" type="category" stroke="#475569" fontSize={10} width={135} />
                   <Tooltip
                     formatter={(val: any) => [formatCurrency(Number(val), currency), isEn ? 'Total Revenue' : 'Faturação Total']}
                     contentStyle={{ backgroundColor: '#0C2340', color: '#fff', fontSize: '11px', borderRadius: '8px' }}

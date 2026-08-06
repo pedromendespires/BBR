@@ -12,7 +12,7 @@ export const SwotAndRisk: React.FC<SwotAndRiskProps> = ({ language = 'PT' as Lan
   const swotData = getSwotData(language);
 
   return (
-    <section className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 py-12 sm:py-16 border-t border-slate-200">
+    <section className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 py-12 sm:py-16 border-t border-slate-200">
       {/* Part 1: SWOT Analysis */}
       <div>
         <div className="max-w-3xl mb-8 sm:mb-12">

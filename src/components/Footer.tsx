@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = ({ language = 'PT' }) => {
 
   return (
     <footer className="bg-[#0C2340] text-slate-300 py-6 sm:py-8 border-t border-slate-800 text-xs font-normal">
-      <div className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 space-y-4 sm:space-y-6">
+      <div className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1792px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 space-y-4 sm:space-y-6">
         {/* Top Footer Callout */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pb-4 sm:pb-5 border-b border-white/10 text-center md:text-left">
           <div className="flex items-center gap-4">
