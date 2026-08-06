@@ -18,6 +18,10 @@
   --color-besmart-dark: #0F172A;       /* Primary text */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-besmart-bg);
@@ -39,3 +43,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #00A8B5;
 }
+
+/* Hide scrollbar for clean horizontal nav */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

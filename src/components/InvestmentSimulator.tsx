@@ -116,8 +116,8 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm mt-2 font-normal">
               {isEn
-                ? 'Adjust acquisition, leverage, and occupancy variables to analyze cash flows and ROE in real time.'
-                : 'Ajuste as variáveis de aquisição, financiamento e ocupação para calcular o fluxo e ROE em tempo real.'}
+                ? 'Adjust acquisition, leverage, and occupancy variables to analyze cash flows and ROE.'
+                : 'Ajuste as variáveis de aquisição, financiamento e ocupação para calcular o fluxo e ROE.'}
             </p>
           </div>
 
@@ -258,8 +258,8 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
                 />
                 <p className="text-[10px] text-slate-400 mt-1 italic">
                   {isEn
-                    ? `Academic Total (10 mos): ${formatCurrency(calculated.academicSeasonTotal, currency)}`
-                    : `Total Letivo (10 meses): ${formatCurrency(calculated.academicSeasonTotal, currency)}`}
+                    ? `Academic Total (10.5 mos): ${formatCurrency(calculated.academicSeasonTotal, currency)}`
+                    : `Total Letivo (10,5 meses): ${formatCurrency(calculated.academicSeasonTotal, currency)}`}
                 </p>
               </div>
 

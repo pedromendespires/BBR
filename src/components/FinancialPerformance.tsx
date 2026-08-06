@@ -241,7 +241,7 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                       {isEn ? 'Academic Season (Sept to June)' : 'Época Letiva (Setembro a Junho)'}
                     </h4>
                     <p className="text-[10px] uppercase tracking-wider text-[#00A8B5] font-extrabold">
-                      {isEn ? '10 Months Guaranteed Leases' : '10 Meses de Contrato Garantido'}
+                      {isEn ? '10.5 Months Guaranteed Leases' : '10,5 Meses de Contrato Garantido'}
                     </p>
                   </div>
                 </div>

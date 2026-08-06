@@ -662,7 +662,7 @@ export const RISK_FACTORS_PT: RiskFactor[] = [
     risk: 'Novas restrições municipais às licenças de Alojamento Local no centro histórico.',
     impact: 'High',
     probability: 'Low',
-    mitigation: 'O modelo de negócio é prioritariamente PBSA/Co-living (10 meses letivos) garantindo rentabilidade de 7,5%+ mesmo sem AL no Verão.',
+    mitigation: 'O modelo de negócio é prioritariamente PBSA/Co-living (10,5 meses letivos) garantindo rentabilidade de 7,5%+ mesmo sem AL no Verão.',
   },
   {
     id: 'RF3',
@@ -697,7 +697,7 @@ export const RISK_FACTORS_EN: RiskFactor[] = [
     risk: 'New municipal restrictions on short-term rental licenses in the historic center.',
     impact: 'High',
     probability: 'Low',
-    mitigation: 'The core business model is PBSA/Co-living (10 academic months), securing 7.5%+ yields even without summer tourist rentals.',
+    mitigation: 'The core business model is PBSA/Co-living (10.5 academic months), securing 7.5%+ yields even without summer tourist rentals.',
   },
   {
     id: 'RF3',
