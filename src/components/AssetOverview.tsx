@@ -24,10 +24,7 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
           {isEn ? '04. Unit Portfolio' : '04. Portfólio de Unidades'}
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0C2340] tracking-tight">
-          {isEn ? 'Asset Photos' : 'Fotografias do Ativo'}{' '}
-          <span className="font-normal text-[#00A8B5]">
-            {isEn ? '& Unit Portfolio' : '& Portfólio de Unidades'}
-          </span>
+          {isEn ? 'Asset Photos' : 'Fotografias do Ativo'}
         </h2>
         <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
           {isEn
@@ -195,6 +192,14 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
                 <CheckCircle2 className="w-4 h-4 text-[#00A8B5] shrink-0 mt-0.5" />
                 <span>
                   {isEn
+                    ? 'Aveiro experiences growing and diversified demand, driven by Erasmus students, researchers, young professionals, digital nomads, and tourists.'
+                    : 'Aveiro regista uma procura crescente e diversificada, impulsionada por estudantes Erasmus, investigadores, jovens profissionais, nómadas digitais e turistas.'}
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#00A8B5] shrink-0 mt-0.5" />
+                <span>
+                  {isEn
                     ? 'Chronic shortage of premium ensuite student rooms near the University of Aveiro campus.'
                     : 'Escassez crónica de quartos de qualidade com casa de banho privativa perto do campus da UA.'}
                 </span>
@@ -205,14 +210,6 @@ export const AssetOverview: React.FC<AssetOverviewProps> = ({ language = 'PT' as
                   {isEn
                     ? 'Vibrant dining ecosystem, traditional commerce, and high pedestrian mobility.'
                     : 'Excelente ecossistema de restauração, comércio tradicional e mobilidade pedonal.'}
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#00A8B5] shrink-0 mt-0.5" />
-                <span>
-                  {isEn
-                    ? 'Surging demand from tech companies and research centers in Aveiro.'
-                    : 'Procura crescente de quadros altamente qualificados de empresas tecnológicas em Aveiro.'}
                 </span>
               </li>
             </ul>
