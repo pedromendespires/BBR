@@ -286,7 +286,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
               </div>
               <input
                 type="range"
-                min={40000}
+                min={30000}
                 max={75000}
                 step={1000}
                 value={annualOpex}
