@@ -18,7 +18,7 @@ export const InvestmentSimulator: React.FC<InvestmentSimulatorProps> = ({ curren
   const [interestRate, setInterestRate] = useState<number>(1.0); // 1.0% base loan interest
   const [loanTermYears, setLoanTermYears] = useState<number>(12); // Until 2037
   const [academicMonthlyRev, setAcademicMonthlyRev] = useState<number>(9000); // 9k€ / mo
-  const [summerTotalRev, setSummerTotalRev] = useState<number>(37000); // 37k€ summer total
+  const [summerTotalRev, setSummerTotalRev] = useState<number>(36000); // 36k€ summer total
   const [annualOpex, setAnnualOpex] = useState<number>(58000); // OPEX
 
   // Derived Financial Calculations
