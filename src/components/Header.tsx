@@ -187,18 +187,6 @@ export const Header: React.FC<HeaderProps> = ({
 
               <div className="border-t border-slate-700/80 pt-4">
                 <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
-                  {language === 'EN' ? 'Conservative Net Yield' : 'Net Yield Conservador'}
-                </div>
-                <div className="text-xl sm:text-2xl font-black text-emerald-400">
-                  ~6.08%
-                </div>
-                <div className="text-[11px] text-slate-300 italic mt-0.5">
-                  {language === 'EN' ? 'Conservative scenario (€102k/yr)' : 'Cenário conservador (102k €/ano)'}
-                </div>
-              </div>
-
-              <div className="border-t border-slate-700/80 pt-4">
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
                   {t.equityRequired}
                 </div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-white">
