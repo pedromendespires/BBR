@@ -162,10 +162,11 @@ export const FinancialPerformance: React.FC<FinancialPerformanceProps> = ({ curr
                       content={({ payload }) => {
                         if (!payload || !payload.length) return null;
                         const data = payload[0].payload;
+                        const isBesmart = data.name?.includes('Besmart');
                         return (
                           <div className="bg-[#0C2340] text-white p-3 rounded-lg text-xs space-y-1 shadow-lg">
                             <p className="font-bold text-[#00A8B5]">{data.name}</p>
-                            <p>Net Yield: {formatPercent(data.yield, language)}</p>
+                            {!isBesmart && <p>Net Yield: {formatPercent(data.yield, language)}</p>}
                             <p>{isEn ? 'Risk Index:' : 'Índice de Risco:'} {data.risk}/20</p>
                           </div>
                         );
